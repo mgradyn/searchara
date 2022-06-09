@@ -1,0 +1,32 @@
+.search__result {
+  display: grid;
+}
+
+.search__result-overlay,
+.search__result-content {
+  grid-area: 1 / 1;
+}
+
+.search__result-content-background {
+  display: grid;
+  overflow: hidden;
+}
+
+.search__result-content-background .black__overlay,
+.search__result-content-background-img {
+  grid-area: 1 / 1;
+}
+
+.search__result-content-background-img {
+  width: 100vw;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.search__result-content-background .black__overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.65);
+}

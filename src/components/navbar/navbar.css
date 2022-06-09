@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.navbar-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-content img {
+  width: clamp(250px, 20%, 250px);
+  height: clamp(250px, 20%, 250px);
+}
+@media screen and (max-width: 960px) {
+  .navbar-content {
+    flex-direction: column;
+  }
+  .navbar-content img {
+    margin-bottom: 3rem;
+  }
+}

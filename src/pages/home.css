@@ -1,0 +1,36 @@
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-content-logo {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-content-logo img {
+  width: clamp(300px, 50%, 500px);
+  height: clamp(300px, 50%, 500px);
+}
+
+.home-content {
+  display: grid;
+  justify-content: center;
+  align-items: start;
+  grid-template-rows: 1fr 3fr;
+}
+
+.home-content-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 860px) {
+  .home-content {
+    grid-template-rows: 1fr 6fr;
+  }
+}
