@@ -53,6 +53,24 @@ function SearchBar(props) {
     setResults([]);
   };
 
+  //navbar only
+
+  const fileInputRef = useRef();
+
+  const triggerUpload = () => {
+    fileInputRef.current.click();
+  };
+
+  const uploadImage = (e) => {
+    const { files } = e.target;
+    if (files.length > 0) {
+      const url = URL.createObjectURL(files[0]);
+      setImageURL(url);
+    } else {
+      setImageURL(null);
+    }
+  };
+
   console.log("render search bar");
 
   return (
@@ -62,9 +80,23 @@ function SearchBar(props) {
       }`}
     >
       {navbar && (
-        <button className='content__button upload__button' onClick={identify}>
+        <input
+          type='file'
+          accept='image/*'
+          capture='camera'
+          className='uploadInput'
+          onChange={uploadImage}
+          ref={fileInputRef}
+        />
+      )}
+      {navbar && (
+        <button
+          className='content__button upload__button'
+          onClick={triggerUpload}
+        >
           <Icon className='upload__button-icon' icon='ic:round-upload' />
-          Upload |
+          Upload
+          <Icon className='line-icon' icon='ci:line-xl' />
         </button>
       )}
       <Icon className='search__icon' icon='akar-icons:search' />
@@ -74,7 +106,7 @@ function SearchBar(props) {
         ref={textInputRef}
         onChange={handleOnChange}
       />
-      <button className='content__button' onClick={identify}>
+      <button className='content__button search__button' onClick={identify}>
         Search
         <Icon className='search__icon__inside' icon='akar-icons:search' />
       </button>

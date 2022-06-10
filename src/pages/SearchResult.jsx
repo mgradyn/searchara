@@ -12,17 +12,19 @@ function SearchResult() {
 
   return (
     <div className='search__result'>
-      <div className='search__result-content'>
-        <div className='search__result-content-background'>
-          <div
-            className='search__result-content-background-img'
-            style={{ backgroundImage: `url(${background_img})` }}
-          />
-          <div className='black__overlay' />
+      <div className='search__result-container__navbar'>
+        <div className='search__result-container__navbar-navbar'>
+          <div className='search__result-container__navbar-navbar-background'>
+            <div
+              className='search__result-container__navbar-navbar-background-img'
+              style={{ backgroundImage: `url(${background_img})` }}
+            />
+            <div className='black__overlay' />
+          </div>
         </div>
-      </div>
-      <div className='search__result-overlay'>
-        <Navbar />
+        <div className='search__result-container__navbar-overlay'>
+          <Navbar />
+        </div>
       </div>
     </div>
   );
