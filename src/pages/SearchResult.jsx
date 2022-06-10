@@ -26,6 +26,9 @@ function SearchResult() {
           <Navbar />
         </div>
       </div>
+      <div className='search__result-content'>
+        <div className='search__result-content-background'></div>
+      </div>
     </div>
   );
 }
