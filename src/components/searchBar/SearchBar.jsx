@@ -56,7 +56,17 @@ function SearchBar(props) {
   console.log("render search bar");
 
   return (
-    <div className='search__bar'>
+    <div
+      className={`banner ${
+        navbar ? "search__bar search__bar-navbar__prop" : "search__bar"
+      }`}
+    >
+      {navbar && (
+        <button className='content__button upload__button' onClick={identify}>
+          <Icon className='upload__button-icon' icon='ic:round-upload' />
+          Upload |
+        </button>
+      )}
       <Icon className='search__icon' icon='akar-icons:search' />
       <input
         type='text'
