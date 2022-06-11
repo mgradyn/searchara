@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef, useContext } from "react";
 import logo from "../../assets/logo.png";
 import SearchBar from "../searchBar/SearchBar";
 import "./navbar.css";
