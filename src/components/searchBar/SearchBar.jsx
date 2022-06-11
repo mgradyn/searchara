@@ -1,74 +1,22 @@
-import { useState, useEffect, useRef, useContext, memo } from "react";
-import * as tf from "@tensorflow/tfjs-core";
-import "@tensorflow/tfjs-backend-webgl";
-import { TARGET_CLASSES } from "../../utils/constant";
-import { ResultContext } from "../../utils/resultContext";
-import { ImageContext } from "../../utils/imageContext";
-import { ModelContext } from "../../utils/modelContext";
+import { useRef, memo } from "react";
 import "./searchBar.css";
 import { Icon } from "@iconify/react";
+import { UploadHandler } from "../../utils/uploadHandler";
+import { ModelHandler } from "../../utils/modelHandler";
 
 function SearchBar(props) {
-  const { results, setResults } = useContext(ResultContext);
-  const { imageURL, setImageURL } = useContext(ImageContext);
-  const { model, setModel } = useContext(ModelContext);
-
   const { navbar } = props;
 
+  const fileInputRef = useRef();
   const textInputRef = useRef();
 
-  const identify = () => {
-    if (imageURL != null) {
-      textInputRef.current.value = "";
-
-      let img = new Image();
-      img.crossOrigin = "anonymous";
-      img.src = imageURL;
-
-      img.onload = async () => {
-        let tensor = tf.browser.fromPixels(img, 3);
-        tensor = tf.image.resizeNearestNeighbor(tensor, [96, 96]);
-        tensor = tf.expandDims(tensor, 0);
-        tensor = tf.div(tensor, tf.scalar(255.0));
-        const predictions = await model.predict(tensor).data();
-        const top5 = Array.from(predictions)
-          .map(function (p, i) {
-            return {
-              probability: p * 10,
-              className: TARGET_CLASSES[i].name,
-              index: i,
-            };
-          })
-          .sort((a, b) => b.probability - a.probability)
-          .slice(0, 5);
-        setResults(top5);
-
-        console.log(top5);
-      };
-    }
-  };
-
-  const handleOnChange = (e) => {
-    setImageURL(e.target.value);
-    setResults([]);
-  };
+  const { uploadImage, handleOnChange } = UploadHandler();
+  const { identify } = ModelHandler();
 
   //navbar only
 
-  const fileInputRef = useRef();
-
   const triggerUpload = () => {
     fileInputRef.current.click();
-  };
-
-  const uploadImage = (e) => {
-    const { files } = e.target;
-    if (files.length > 0) {
-      const url = URL.createObjectURL(files[0]);
-      setImageURL(url);
-    } else {
-      setImageURL(null);
-    }
   };
 
   console.log("render search bar");

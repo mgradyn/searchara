@@ -5,24 +5,18 @@ import "./uploaderBox.css";
 import { Icon } from "@iconify/react";
 import SearchBar from "../../components/searchBar/SearchBar";
 
+import { UploadHandler } from "../../utils/uploadHandler";
+
 function UploaderBox() {
   const { imageURL, setImageURL } = useContext(ImageContext);
 
   const imageRef = useRef();
   const fileInputRef = useRef();
 
+  const { uploadImage } = UploadHandler();
+
   const triggerUpload = () => {
     fileInputRef.current.click();
-  };
-
-  const uploadImage = (e) => {
-    const { files } = e.target;
-    if (files.length > 0) {
-      const url = URL.createObjectURL(files[0]);
-      setImageURL(url);
-    } else {
-      setImageURL(null);
-    }
   };
 
   console.log("render box");
