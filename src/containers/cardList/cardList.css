@@ -1,0 +1,22 @@
+.list {
+  margin: 2rem 0;
+  display: grid;
+}
+
+.list-cards-container {
+  display: flex;
+  overflow-x: scroll;
+  width: 100%;
+
+  margin-top: 2rem;
+}
+
+.list-cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.list-cards-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

@@ -10,7 +10,9 @@
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
-    "react-use-draggable-scroll": "^0.4.3"
+    "react-use-draggable-scroll": "^0.4.3",
+    "util": "^0.12.4",
+    "uuidv4": "^6.2.13"
   },
   "scripts": {
     "start": "react-scripts start",

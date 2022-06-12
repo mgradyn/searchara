@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useRef, useContext, memo } from "react";
 import character_img from "../../assets/miku.png";
 
 import "./header.css";
@@ -31,4 +31,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default memo(Header);

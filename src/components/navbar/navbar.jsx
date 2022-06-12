@@ -1,3 +1,4 @@
+import { memo } from "react";
 import logo from "../../assets/logo.png";
 import SearchBar from "../searchBar/SearchBar";
 import "./navbar.css";
@@ -13,4 +14,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default memo(Navbar);

@@ -1,0 +1,43 @@
+.movie__card__container h1 {
+  color: var(--color-text-white);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: center;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.movie__card__container {
+  max-width: 224px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  background: var(--color-bg);
+  margin-right: 3rem;
+}
+
+.movie__card__details {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex: 1;
+  padding: 1rem 1rem;
+  flex-direction: column;
+}
+
+.movie__img {
+  width: 224px;
+  height: 256px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 25px 25px 0 0;
+}
