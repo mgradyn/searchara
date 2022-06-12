@@ -5,7 +5,7 @@ import "./navbar.css";
 function Navbar() {
   return (
     <div className='navbar section__padding'>
-      <div className='navbar-content'>
+      <div className='navbar-content overall__max__width'>
         <img src={logo} alt='logo' />
         <SearchBar navbar={true} />
       </div>

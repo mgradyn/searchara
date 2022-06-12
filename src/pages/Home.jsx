@@ -8,7 +8,7 @@ function Home() {
 
   return (
     <div className='home section__padding'>
-      <div className='home-content'>
+      <div className='home-content overall__max__width'>
         <div className='home-content-logo'>
           <img src={logo} alt='logo' />
         </div>
