@@ -77,6 +77,16 @@
   margin-top: 2rem;
 }
 
+.search__list-cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.search__list-cards-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 /* character card  */
 
 .char__card__container h1 {
@@ -137,6 +147,26 @@
   background-position: center;
   overflow: hidden;
   border-radius: 25px;
+}
+
+@media screen and (max-width: 450px) {
+  .search__result {
+    grid-template-rows: repeat(8, 1fr);
+  }
+
+  .char__card__container {
+    flex-direction: column;
+    min-width: calc(168px + 2rem);
+  }
+
+  .char__card__details {
+    padding: 0.5rem 0;
+    max-height: calc(224px + 2rem + 192px);
+  }
+
+  .char__card__details button {
+    justify-self: flex-end;
+  }
 }
 
 @media screen and (max-width: 960px) {

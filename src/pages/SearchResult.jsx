@@ -5,6 +5,8 @@ import "./searchResult.css";
 import background_img from "../assets/background.jpg";
 import { Icon } from "@iconify/react";
 
+import { useDraggable } from "react-use-draggable-scroll";
+
 import char_1 from "../assets/char_1.png";
 import char_2 from "../assets/char_2.png";
 import char_3 from "../assets/char_3.png";
@@ -68,6 +70,13 @@ function SearchResult() {
   const { results, setResults } = useContext(ResultContext);
   const { imageURL, setImageURL } = useContext(ImageContext);
 
+  const scrollRef = useRef();
+  const { events } = useDraggable(scrollRef, {
+    applyRubberBandEffect: true,
+    decayRate: 0.85,
+    safeDisplacement: 12,
+  });
+
   return (
     <div className='search__result'>
       <div className='search__result-container__navbar'>
@@ -93,7 +102,11 @@ function SearchResult() {
                 Similar Characters
               </h1>
             </div>
-            <div className='search__list-cards-container'>
+            <div
+              className='search__list-cards-container'
+              {...events}
+              ref={scrollRef}
+            >
               {characterList.map((character) => (
                 <CharacterCard
                   key={character.className}
