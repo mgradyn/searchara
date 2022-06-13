@@ -5,13 +5,15 @@ import * as tf from "@tensorflow/tfjs-core";
 import "@tensorflow/tfjs-backend-webgl";
 import { TARGET_CLASSES } from "./constant";
 import { ModelContext } from "./modelContext";
+import { useNavigate } from "react-router-dom";
 
 export const ModelHandler = () => {
   const { results, setResults } = useContext(ResultContext);
   const { imageURL, setImageURL } = useContext(ImageContext);
   const { model, setModel } = useContext(ModelContext);
+  const navigate = useNavigate();
 
-  const identify = () => {
+  const identify = (callback) => {
     if (imageURL != null) {
       let img = new Image();
       img.crossOrigin = "anonymous";
@@ -33,7 +35,7 @@ export const ModelHandler = () => {
           })
           .sort((a, b) => b.probability - a.probability)
           .slice(0, 5);
-        setResults(top5);
+        setResults(top5, navigate("/result"));
 
         console.log(top5);
       };

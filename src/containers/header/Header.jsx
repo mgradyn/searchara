@@ -1,9 +1,14 @@
 import { useState, useEffect, useRef, useContext, memo } from "react";
 import character_img from "../../assets/miku.png";
+import { ResultContext } from "../../utils/resultContext";
+import { ImageContext } from "../../utils/imageContext";
 
 import "./header.css";
 
 function Header() {
+  const { results, setResults } = useContext(ResultContext);
+  const { imageURL, setImageURL } = useContext(ImageContext);
+
   const charName = "Hatsune Miku";
   const confidence = "87%";
   const charDescription =
@@ -14,13 +19,16 @@ function Header() {
       <div className='header-character__img'>
         <div
           className='character__img'
-          style={{ backgroundImage: `url(${character_img})` }}
+          style={{ backgroundImage: `url(${imageURL})` }}
         />
       </div>
       <div className='header-character__details'>
         <div className='character__details-name'>
-          <h1 className='title'>{charName}</h1>
-          <h2 className='title__highlight'>{confidence + " confident"}</h2>
+          <h1 className='title'>{results[0].className}</h1>
+          <h2 className='title__highlight'>
+            {Number.parseFloat(results[0].probability).toFixed(2) +
+              "% confident"}
+          </h2>
         </div>
         <p className='description'>{charDescription}</p>
         <button className='content__button yellow__button' onClick={() => {}}>
