@@ -1,392 +1,522 @@
 export const TARGET_CLASSES = {
   0: {
-    name: "abigail_williams_(fate)",
+    name: "Abigail williams",
+    id: 147891,
   },
   1: {
-    name: "aegis_(persona)",
+    name: "Aegis",
+    id: 6207,
   },
   2: {
-    name: "aisaka_taiga",
+    name: "Aisaka Taiga",
+    id: 12064,
   },
   3: {
-    name: "albedo",
+    name: "Albedo",
+    id: 89122,
   },
   4: {
-    name: "anastasia_(idolmaster)",
+    name: "Anastasia",
+    id: 88634,
   },
   5: {
-    name: "aqua_(konosuba)",
+    name: "Aqua",
+    id: 89362,
   },
   6: {
-    name: "arcueid_brunestud",
+    name: "Arcueid Brunestud",
+    search: "Arcueid Brunestud",
   },
   7: {
-    name: "asia_argento",
+    name: "Asia Argento",
+    id: 2213,
   },
   8: {
-    name: "astolfo_(fate)",
+    name: "Astolfo",
+    id: 79995,
   },
   9: {
-    name: "asuna_(sao)",
+    name: "Asuna Yuuki",
+    id: 36828,
   },
   10: {
-    name: "atago_(azur_lane)",
+    name: "Atago",
+    id: 135820,
   },
   11: {
-    name: "ayanami_rei",
+    name: "Ayanami Rei",
+    id: 86,
   },
   12: {
-    name: "belfast_(azur_lane)",
+    name: "Belfast",
+    id: 130070,
   },
   13: {
-    name: "bremerton_(azur_lane)",
+    name: "Bremerton",
+    id: 211478,
   },
   14: {
-    name: "c.c",
+    name: "C.C.",
+    id: 1111,
   },
   15: {
-    name: "chitanda_eru",
+    name: "Eru Chitanda",
+    id: 55133,
   },
   16: {
-    name: "chloe_von_einzbern",
+    name: "Chloe Von Einzbern",
+    id: 40624,
   },
   17: {
-    name: "cleveland_(azur_lane)",
+    name: "Cleveland",
+    id: 130162,
   },
   18: {
-    name: "d.va_(overwatch)",
+    name: "d.va",
+    id: 88526,
   },
   19: {
-    name: "dido_(azur_lane)",
+    name: "Dido",
+    id: 202486,
   },
   20: {
-    name: "emilia_rezero",
+    name: "Emilia",
+    id: 88572,
   },
   21: {
-    name: "enterprise_(azur_lane)",
+    name: "Enterprise",
+    id: 130082,
   },
   22: {
-    name: "formidable_(azur_lane)",
+    name: "Formidable",
+    id: 206521,
   },
   23: {
-    name: "fubuki_(one-punch_man)",
+    name: "Fubuki",
+    id: 81931,
   },
   24: {
-    name: "fujibayashi_kyou",
+    name: "Fujibayashi Kyou",
+    id: 4605,
   },
   25: {
-    name: "fujiwara_chika",
+    name: "Fujiwara Chika",
+    id: 121103,
   },
   26: {
-    name: "furukawa_nagisa",
+    name: "Furukawa Nagisa",
+    id: 4604,
   },
   27: {
-    name: "gawr_gura",
+    name: "Gawr Gura",
+    id: 206017,
   },
   28: {
-    name: "gilgamesh",
+    name: "Gilgamesh",
+    id: 2514,
   },
   29: {
-    name: "giorno_giovanna",
+    name: "Giorno Giovanna",
+    id: 10529,
   },
   30: {
-    name: "hanekawa_tsubasa",
+    name: "Hanekawa Tsubasa",
+    id: 22055,
   },
   31: {
-    name: "hatsune_miku",
+    name: "Hatsune Miku",
+    id: 7156,
   },
   32: {
-    name: "hayasaka_ai",
+    name: "Hayasaka Ai",
+    id: 121104,
   },
   33: {
-    name: "hirasawa_yui",
+    name: "Hirasawa Yui",
+    id: 19565,
   },
   34: {
-    name: "hyuuga_hinata",
+    name: "Hyuuga Hinata",
+    id: 1555,
   },
   35: {
-    name: "ichigo_(darling_in_the_franxx)",
+    name: "Ichigo",
+    id: 124382,
   },
   36: {
-    name: "illyasviel_von_einzbern",
+    name: "Illyasviel Von Einzbern",
+    id: 503,
   },
   37: {
-    name: "irisviel_von_einzbern",
+    name: "irisviel Von Einzbern",
+    id: 15164,
   },
   38: {
-    name: "ishtar_(fate_grand_order)",
+    name: "Ishtar",
+    id: 135743,
   },
   39: {
-    name: "isshiki_iroha",
+    name: "Iroha Isshiki",
+    id: 88727,
   },
   40: {
-    name: "jonathan_joestar",
+    name: "Jonathan Joestar",
+    id: 8087,
   },
   41: {
-    name: "kamado_nezuko",
+    name: "Kamado Nezuko",
+    id: 127518,
   },
   42: {
-    name: "kaname_madoka",
+    name: "Kaname Madoka",
+    id: 37832,
   },
   43: {
-    name: "kanbaru_suruga",
+    name: "Kanbaru Suruga",
+    id: 22054,
   },
   44: {
-    name: "karin_(blue_archive)",
+    name: "Karin Kakudate",
+    id: 264238,
   },
   45: {
-    name: "karna_(fate)",
+    name: "Karna",
+    id: 120461,
   },
   46: {
-    name: "katsuragi_misato",
+    name: "Misato Katsuragi",
+    id: 1259,
   },
   47: {
-    name: "keqing_(genshin_impact)",
+    name: "Keqing",
+    id: 233896,
   },
   48: {
-    name: "kirito",
+    name: "Kirito",
+    id: 36765,
   },
   49: {
-    name: "kiryu_coco",
+    name: "Kiryu Coco",
+    id: 177217,
   },
   50: {
-    name: "kizuna_ai",
+    name: "Kizuna Ai",
+    id: 206833,
   },
   51: {
-    name: "kochou_shinobu",
+    name: "Shinobu Kochou",
+    id: 136070,
   },
   52: {
-    name: "komi_shouko",
+    name: "Shouko Komi",
+    id: 121956,
   },
   53: {
-    name: "laffey_(azur_lane)",
+    name: "Laffey",
+    id: 130179,
   },
   54: {
-    name: "lancer",
+    name: "Cú Chulainn",
+    id: 499,
   },
   55: {
-    name: "makise_kurisu",
+    name: "Kurisu Makise",
+    id: 34470,
   },
   56: {
-    name: "mash_kyrielight",
+    name: "Mash Kyrielight",
+    id: 120735,
   },
   57: {
-    name: "matou_sakura",
+    name: "Sakura Matou",
+    id: 500,
   },
   58: {
-    name: "megumin",
+    name: "Megumin",
+    id: 89361,
   },
   59: {
-    name: "mei_(pokemon)",
+    name: "Mei",
+    id: 66335,
   },
   60: {
-    name: "meltlilith",
+    name: "Meltryllis",
+    id: 210999,
   },
   61: {
-    name: "minato_aqua",
+    name: "Aqua Minato",
+    id: 169497,
   },
   62: {
-    name: "misaka_mikoto",
+    name: "Mikoto Misaka",
+    id: 13701,
   },
   63: {
-    name: "miyazono_kawori",
+    name: "Kaori Miyazono",
+    id: 69411,
   },
   64: {
-    name: "mori_calliope",
+    name: "Calliope Mori",
+    id: 206013,
   },
   65: {
-    name: "nagato_yuki",
+    name: "Yuki Nagato",
+    id: 249,
   },
   66: {
-    name: "nakano_azusa",
+    name: "Azusa Nakano",
+    id: 21173,
   },
   67: {
-    name: "nakano_itsuki",
+    name: "Itsuki Nakano",
+    id: 126375,
   },
   68: {
-    name: "nakano_miku",
+    name: "Nakano Miku",
+    id: 126373,
   },
   69: {
-    name: "nakano_nino",
+    name: "Nakano Nino",
+    id: 126372,
   },
   70: {
-    name: "nakano_yotsuba",
+    name: "Nakano Yotsuba",
+    id: 126374,
   },
   71: {
-    name: "nami_(one_piece)",
+    name: "Nami",
+    id: 723,
   },
   72: {
-    name: "nekomata_okayu",
+    name: "Okayu Nekomata",
+    id: 169502,
   },
   73: {
-    name: "nico_robin",
+    name: "Robin Nico",
+    id: 61,
   },
   74: {
-    name: "ninomae_ina'nis",
+    name: "Ina'nis Ninomae",
+    id: 206019,
   },
   75: {
-    name: "nishikino_maki",
+    name: "Maki Nishikino",
+    id: 46165,
   },
   76: {
-    name: "okita_souji_(fate)",
+    name: "Souji Okita",
+    id: 138910,
   },
   77: {
-    name: "ookami_mio",
+    name: "Mio Ookami",
+    id: 169490,
   },
   78: {
-    name: "oshino_ougi",
+    name: "Ougi Oshino",
+    id: 87886,
   },
   79: {
-    name: "oshino_shinobu",
+    name: "Shinobu Oshino",
+    id: 23602,
   },
   80: {
-    name: "ouro_kronii",
+    name: "Ouro Kronii",
+    id: 249913,
   },
   81: {
-    name: "paimon_(genshin_impact)",
+    name: "Paimon",
+    id: 203317,
   },
   82: {
-    name: "platelet_(hataraku_saibou)",
+    name: "Platelet",
+    id: 127417,
   },
   83: {
-    name: "ram_rezero",
+    name: "Ram",
+    id: 88576,
   },
   84: {
     name: "raphtalia",
+    id: 88889,
   },
   85: {
-    name: "rem_rezero",
+    name: "Rem Rezero",
+    id: 88575,
   },
   86: {
-    name: "rias_gremory",
+    name: "Rias Gremory",
+    id: 50389,
   },
   87: {
-    name: "rider",
+    name: "Medusa",
+    id: 502,
   },
   88: {
-    name: "ryougi_shiki",
+    name: "Shiki Ryougi",
+    id: 3105,
   },
   89: {
-    name: "sakura_futaba",
+    name: "Sakura Futaba",
+    id: 121635,
   },
   90: {
-    name: "sakurajima_mai",
+    name: "Mai Sakurajima",
+    id: 127222,
   },
   91: {
-    name: "sakurauchi_riko",
+    name: "Riko Sakurauchi",
+    id: 89845,
   },
   92: {
-    name: "satonaka_chie",
+    name: "Chie Satonaka",
+    id: 16207,
   },
   93: {
-    name: "semiramis_(fate)",
+    name: "Semiramis",
+    id: 35596,
   },
   94: {
-    name: "sengoku_nadeko",
+    name: "Sengoku Nadeko",
+    id: 22050,
   },
   95: {
-    name: "senjougahara_hitagi",
+    name: "Hitagi Senjougahara",
+    id: 22037,
   },
   96: {
-    name: "shidare_hotaru",
+    name: "Hotaru Shidare",
+    id: 89119,
   },
   97: {
-    name: "shinomiya_kaguya",
+    name: "Kaguya Shinomiya",
+    id: 120649,
   },
   98: {
-    name: "shirakami_fubuki",
+    name: "Shirakami Fubuki",
+    id: 169486,
   },
   99: {
-    name: "shirogane_naoto",
+    name: "Naoto Shirogane",
+    id: 16249,
   },
   100: {
-    name: "shirogane_noel",
+    name: "Shirogane Noel",
+    id: 169495,
   },
   101: {
-    name: "shishiro_botan",
+    name: "Shishiro Botan",
+    id: 206015,
   },
   102: {
-    name: "shuten_douji_(fate)",
+    name: "Shuten-Douji",
+    id: 141110,
   },
   103: {
-    name: "sinon",
+    name: "Sinon",
+    id: 55147,
   },
   104: {
-    name: "souryuu_asuka_langley",
+    name: "Asuka Langley Souryuu",
+    id: 94,
   },
   105: {
-    name: "st_ar-15_(girls_frontline)",
+    name: "ST AR-15",
+    id: 135793,
   },
   106: {
-    name: "super_sonico",
+    name: "Super Sonico",
+    id: 41646,
   },
   107: {
-    name: "suzuhara_lulu",
+    name: "Suzuhara Lulu",
+    id: 11992,
   },
   108: {
-    name: "suzumiya_haruhi",
+    name: "Haruhi Suzumiya",
+    id: 251,
   },
   109: {
-    name: "taihou_(azur_lane)",
+    name: "Taihou",
+    id: 193799,
   },
   110: {
-    name: "takagi-san",
+    name: "Takagi-San",
+    id: 120800,
   },
   111: {
-    name: "takamaki_anne",
+    name: "Ann Takamaki",
+    id: 120335,
   },
   112: {
-    name: "takanashi_rikka",
+    name: "Rikka Takanashi",
+    id: 65865,
   },
   113: {
-    name: "takao_(azur_lane)",
+    name: "Takao",
+    id: 130167,
   },
   114: {
-    name: "takarada_rikka",
+    name: "Rikka Takarada",
+    id: 127585,
   },
   115: {
-    name: "takimoto_hifumi",
+    name: "Hifumi Takimoto",
+    id: 89644,
   },
   116: {
-    name: "tokoyami_towa",
+    name: "Towa Tokoyami",
+    id: 182764,
   },
   117: {
-    name: "toosaka_rin",
+    name: "Rin Toosaka",
+    id: 498,
   },
   118: {
-    name: "toujou_nozomi",
+    name: "Nozomi Toujou",
+    id: 46169,
   },
   119: {
-    name: "tsushima_yoshiko",
+    name: "Yoshiko Tsushima",
+    id: 89849,
   },
   120: {
-    name: "unicorn_(azur_lane)",
+    name: "Unicorn",
+    id: 130078,
   },
   121: {
-    name: "usada_pekora",
+    name: "Pekora Usada",
+    id: 169492,
   },
   122: {
-    name: "utsumi_erise",
+    name: "Erice Utsumi",
+    id: 136939,
   },
   123: {
-    name: "watson_amelia",
+    name: "Amelia Watson",
+    id: 206020,
   },
   124: {
-    name: "waver_velvet",
+    name: "Waver Velvet",
+    id: 16023,
   },
   125: {
-    name: "xenovia_(high_school_dxd)",
+    name: "Xenovia Quarta",
+    id: 51337,
   },
   126: {
-    name: "yui_(angel_beats!)",
+    name: "Yui",
+    id: 24515,
   },
   127: {
-    name: "yuigahama_yui",
+    name: "Yui Yuigahama",
+    id: 67069,
   },
   128: {
-    name: "yukinoshita_yukino",
+    name: "Yukino Yukinoshita",
+    id: 67067,
   },
   129: {
-    name: "zero_two_(darling_in_the_franxx)",
+    name: "Zero Two",
+    id: 124381,
   },
 };
