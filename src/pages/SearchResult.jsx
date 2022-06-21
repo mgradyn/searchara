@@ -8,9 +8,13 @@ import Navbar from "../components/navbar/navbar";
 import Header from "../containers/header/Header";
 import CardList from "../containers/cardList/cardList";
 
+import { CharactersContext } from "../utils/charactersContext";
+
 function SearchResult() {
   const { results, setResults } = useContext(ResultContext);
   const { imageURL, setImageURL } = useContext(ImageContext);
+
+  const { characters, setCharacters } = useContext(CharactersContext);
 
   return (
     <div className='search__result'>

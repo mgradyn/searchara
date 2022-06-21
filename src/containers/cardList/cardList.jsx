@@ -8,6 +8,10 @@ import { useDraggable } from "react-use-draggable-scroll";
 import CharacterCard from "../../components/characterCard/characterCard";
 import MovieCard from "../../components/movieCard/movieCard";
 
+import { CharactersContext } from "../../utils/charactersContext";
+
+import { ResultContext } from "../../utils/resultContext";
+
 import char_1 from "../../assets/char_1.png";
 import char_2 from "../../assets/char_2.png";
 import char_3 from "../../assets/char_3.png";
@@ -90,6 +94,9 @@ function CardList(props) {
 
   const { mode } = props;
 
+  const { characters, setCharacters } = useContext(CharactersContext);
+  const { results, setResults } = useContext(ResultContext);
+
   return (
     <div className='list overall__max__width '>
       <div className='list-title-container'>
@@ -98,8 +105,19 @@ function CardList(props) {
         </h1>
       </div>
       <div className='list-cards-container' {...events} ref={scrollRef}>
-        {mode === "characters"
-          ? characterList.map((character) => (
+        {mode === "characters" && characters.length !== 0
+          ? characters.flatMap((character, i) =>
+              character.id === results[results.selected].id ? null : (
+                <CharacterCard
+                  key={uuid()}
+                  imageUrl={character.image.large}
+                  class={character.name.full}
+                  probability={results[i].probability}
+                />
+              )
+            )
+          : mode === "characters" && characters.length === 0
+          ? characterList.flatMap((character) => (
               <CharacterCard
                 key={uuid()}
                 imageUrl={character.imageUrl}

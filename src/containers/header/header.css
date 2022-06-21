@@ -34,6 +34,15 @@
   grid-column: 2 / -1;
 }
 
+.header-character__details .description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 12; /* number of lines to show */
+  line-clamp: 12;
+  -webkit-box-orient: vertical;
+}
+
 .header-character__img .character__img {
   overflow: hidden;
   border-radius: 40px;

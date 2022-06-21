@@ -7,12 +7,17 @@ import SearchResult from "./pages/SearchResult";
 import { ImageContext } from "./utils/imageContext";
 import { ResultContext } from "./utils/resultContext";
 import { ModelContext } from "./utils/modelContext";
+import { CharactersContext } from "./utils/charactersContext";
+import { MoviesContext } from "./utils/moviesContext";
 import "./global.css";
 
 function App() {
   const [results, setResults] = useState([]);
   const [imageURL, setImageURL] = useState(null);
   const [model, setModel] = useState(null);
+
+  const [movies, setMovies] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   const [isModelLoading, setIsModelLoading] = useState(false);
 
@@ -24,6 +29,16 @@ function App() {
   const providerImage = useMemo(
     () => ({ imageURL, setImageURL }),
     [imageURL, setImageURL]
+  );
+
+  const providerMovies = useMemo(
+    () => ({ movies, setMovies }),
+    [movies, setMovies]
+  );
+
+  const providerCharacters = useMemo(
+    () => ({ characters, setCharacters }),
+    [characters, setCharacters]
   );
 
   const providerModel = useMemo(() => ({ model, setModel }), [model, setModel]);
@@ -52,11 +67,15 @@ function App() {
       <ModelContext.Provider value={providerModel}>
         <ImageContext.Provider value={providerImage}>
           <ResultContext.Provider value={providerResults}>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/result' element={<SearchResult />} />
-              <Route path='*' element={<SearchResult />} />
-            </Routes>
+            <CharactersContext.Provider value={providerCharacters}>
+              <MoviesContext.Provider value={providerMovies}>
+                <Routes>
+                  <Route path='/' element={<Home />} />
+                  <Route path='/result' element={<SearchResult />} />
+                  <Route path='*' element={<SearchResult />} />
+                </Routes>
+              </MoviesContext.Provider>
+            </CharactersContext.Provider>
           </ResultContext.Provider>
         </ImageContext.Provider>
       </ModelContext.Provider>
