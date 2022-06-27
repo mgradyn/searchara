@@ -47,12 +47,22 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
-  max-width: fit-content;
+  width: auto;
+  max-width: 45%;
   max-height: fit-content;
   line-height: 14px;
   border-radius: 10px;
   cursor: pointer;
   border: none;
+  overflow: hidden;
+  -webkit-transition: max-width 0.2s ease-in-out;
+  -moz-transition: max-width 0.2s ease-in-out;
+  -o-transition: max-width 0.2s ease-in-out;
+  transition: max-width 0.2s ease-in-out;
+}
+
+.char__card__details button:hover {
+  max-width: 80%;
 }
 
 .char__img {

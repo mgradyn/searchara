@@ -21,5 +21,5 @@ export const UploadHandler = () => {
     setResults([]);
   };
 
-  return { uploadImage, handleOnChange };
+  return { uploadImage: uploadImage, handleOnChange: handleOnChange };
 };

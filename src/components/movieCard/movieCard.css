@@ -23,6 +23,10 @@
   margin-right: 3rem;
 }
 
+.movie__card__container:hover {
+  cursor: pointer;
+}
+
 .movie__card__details {
   align-items: center;
   justify-content: center;
@@ -40,4 +44,8 @@
   background-position: center;
   overflow: hidden;
   border-radius: 25px 25px 0 0;
+}
+
+.movieRef {
+  display: flex;
 }

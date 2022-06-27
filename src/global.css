@@ -10,7 +10,7 @@ body {
 }
 
 a {
-  color: unset;
+  color: var(--color-highlight-yellow);
   text-decoration: none;
 }
 
@@ -28,7 +28,8 @@ a {
 
 h1,
 h2,
-p {
+p,
+li {
   font-family: var(--font-family);
 }
 
@@ -96,6 +97,20 @@ p {
 
   100% {
     background-color: hsl(0, 0%, 48%);
+  }
+}
+
+.skeleton-darker {
+  animation: skeleton-loading-darker 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading-darker {
+  0% {
+    background-color: hsl(0, 0%, 15%);
+  }
+
+  100% {
+    background-color: hsl(0, 1%, 35%);
   }
 }
 

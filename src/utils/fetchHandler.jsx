@@ -19,7 +19,7 @@ query ($id: Int, $id2: Int, $id3: Int, $id4: Int, $id5: Int){
       image{
           large
       }
-      description(asHtml: false)
+      description(asHtml:true)
   }
   character1: Character (id: $id2) {
       id
@@ -30,7 +30,7 @@ query ($id: Int, $id2: Int, $id3: Int, $id4: Int, $id5: Int){
       image{
           large
       }
-      description(asHtml: false)
+      description(asHtml:true)
   }
   character2: Character (id: $id3) {
       id
@@ -41,7 +41,7 @@ query ($id: Int, $id2: Int, $id3: Int, $id4: Int, $id5: Int){
       image{
           large
       }
-      description(asHtml: false)
+      description(asHtml:true)
   }
   character3: Character (id: $id4) {
       id
@@ -52,7 +52,7 @@ query ($id: Int, $id2: Int, $id3: Int, $id4: Int, $id5: Int){
       image{
           large
       }
-      description(asHtml: false)
+      description(asHtml:true)
   }
   character4: Character (id: $id5) {
       id
@@ -63,39 +63,31 @@ query ($id: Int, $id2: Int, $id3: Int, $id4: Int, $id5: Int){
       image{
           large
       }
-      description(asHtml: false)
+      description(asHtml:true)
   }
 }
 `;
 
   const movieQuery = `
 query ($id: Int){
-  Character (id: $id) {
-      id
-      name{
-          full
-      }
-      image{
-          large
-      }
-      siteUrl
-      description(asHtml: false)
-      media(type:ANIME, page: 1, perPage: 10){
-          edges {
-              node{
-               id
-               title {
-               romaji
-               english
-               native
-              }
-              coverImage{
-                  extraLarge
-              }
-              }
-          }
-      }
-  }
+    character0: Character (id: $id) {
+        media(type:ANIME, page: 1, perPage: 10){
+            edges {
+                node{
+                 id
+                 siteUrl
+                 title {
+                 romaji
+                 english
+                 native
+                }
+                coverImage{
+                    extraLarge
+                }
+                }
+            }
+        }
+    }
 }
 `;
 
@@ -110,8 +102,8 @@ query ($id: Int){
     // let temp = results;
     // console.log(results);
 
-    setMovies(data.data);
-    console.log(movies);
+    setMovies(data.data.character0.media.edges);
+    console.log(data.data.character0.media.edges);
   };
 
   const handleCharacters = (data) => {
@@ -123,8 +115,8 @@ query ($id: Int){
     data = Object.keys(data).map(function (_) {
       return data[_];
     });
-    console.log(results);
-    console.log(data);
+    // console.log(results);
+    // console.log(data);
     setCharacters(data);
   };
 
@@ -161,5 +153,5 @@ query ($id: Int){
       .catch(handleError);
   };
 
-  return { fetchRequest, getCharacters, getMovies };
+  return { getCharacters: getCharacters, getMovies: getMovies };
 };

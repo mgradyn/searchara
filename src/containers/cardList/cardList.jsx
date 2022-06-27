@@ -9,80 +9,16 @@ import CharacterCard from "../../components/characterCard/characterCard";
 import MovieCard from "../../components/movieCard/movieCard";
 
 import { CharactersContext } from "../../utils/charactersContext";
-
+import { MoviesContext } from "../../utils/moviesContext";
 import { ResultContext } from "../../utils/resultContext";
-
-import char_1 from "../../assets/char_1.png";
-import char_2 from "../../assets/char_2.png";
-import char_3 from "../../assets/char_3.png";
-import char_4 from "../../assets/char_4.jpg";
-import char_5 from "../../assets/char_5.png";
-
-import movie_1 from "../../assets/movie_1.jpg";
-import movie_2 from "../../assets/movie_2.jpg";
-import movie_3 from "../../assets/movie_3.jpg";
-import movie_4 from "../../assets/movie_4.jpg";
-import movie_5 from "../../assets/movie_5.jpg";
-import movie_6 from "../../assets/movie_6.jpg";
 
 //characters
 
-const characterList = [
-  {
-    probability: 32.33332395553589,
-    className: "Hatsune Miku",
-    imageUrl: char_5,
-  },
-  {
-    probability: 23.244707584381104,
-    className: "Ayanami Rei",
-    imageUrl: char_1,
-  },
-  {
-    probability: 23.198423385620117,
-    className: "Aqua (Konosuba)",
-    imageUrl: char_2,
-  },
-  {
-    probability: 18.819395303726196,
-    className: "Shino Asada",
-    imageUrl: char_3,
-  },
-  {
-    probability: 18.286945819854736,
-    className: "Nefertari Titi",
-    imageUrl: char_4,
-  },
-];
+const characterList = [{}, {}, {}, {}, {}];
 
 //movies
 
-const movieList = [
-  {
-    title: "Sekiranun Grafitti",
-    imageUrl: movie_1,
-  },
-  {
-    title: "Redial",
-    imageUrl: movie_2,
-  },
-  {
-    title: "Yumeyume",
-    imageUrl: movie_3,
-  },
-  {
-    title: "Tell Your World",
-    imageUrl: movie_4,
-  },
-  {
-    title: "EDEN",
-    imageUrl: movie_5,
-  },
-  {
-    title: "Downloader",
-    imageUrl: movie_6,
-  },
-];
+const movieList = [{}, {}, {}, {}, {}, {}];
 
 function CardList(props) {
   const scrollRef = useRef();
@@ -96,6 +32,7 @@ function CardList(props) {
 
   const { characters, setCharacters } = useContext(CharactersContext);
   const { results, setResults } = useContext(ResultContext);
+  const { movies, setMovies } = useContext(MoviesContext);
 
   return (
     <div className='list overall__max__width '>
@@ -110,6 +47,7 @@ function CardList(props) {
               character.id === results[results.selected].id ? null : (
                 <CharacterCard
                   key={uuid()}
+                  idx={i}
                   imageUrl={character.image.large}
                   class={character.name.full}
                   probability={results[i].probability}
@@ -117,20 +55,25 @@ function CardList(props) {
               )
             )
           : mode === "characters" && characters.length === 0
-          ? characterList.flatMap((character) => (
+          ? characterList.flatMap(() => (
               <CharacterCard
                 key={uuid()}
-                imageUrl={character.imageUrl}
-                class={character.className}
-                probability={character.probability}
+                imageUrl={null}
+                class={null}
+                probability={null}
               />
             ))
-          : movieList.map((movie) => (
+          : mode === "movies" && movies.length !== 0
+          ? movies.map((movie) => (
               <MovieCard
                 key={uuid()}
-                imageUrl={movie.imageUrl}
-                title={movie.title}
+                imageUrl={movie.node.coverImage.extraLarge}
+                title={movie.node.title.romaji}
+                siteUrl={movie.node.siteUrl}
               />
+            ))
+          : movieList.map(() => (
+              <MovieCard key={uuid()} imageUrl={null} title={null} />
             ))}
       </div>
     </div>

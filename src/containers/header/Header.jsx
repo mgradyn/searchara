@@ -12,20 +12,25 @@ function Header() {
 
   const { characters, setCharacters } = useContext(CharactersContext);
 
-  const charName = "Hatsune Miku";
-  const confidence = "87%";
-  const charDescription =
-    'Hatsune Miku is the second Vocaloid2 after Sweet Ann and the first installment in the Vocaloid2 Character Vocal Series by Crypton Future Media released on August 31, 2007. The name of the title and the character of the software was chosen by combining "hatsu" (初, first), "ne" (音, sound), and miku (未来, future). The data for the voice was created by actually sampling the voice of Saki Fujita, a Japanese voice actress. Unlike general purpose speech synthesizers, the software is tuned to create J-pop songs commonly heard in anime, but it is possible to create songs from other genres.';
-
   console.log("Header render");
 
   return (
     <div className='header overall__max__width section__space'>
       <div className='header-character__img'>
-        <div
-          className='character__img'
-          style={{ backgroundImage: `url(${imageURL})` }}
-        />
+        {characters.length === 0 && results.selected !== 0 ? (
+          <div className='character__img skeleton' />
+        ) : (
+          <div
+            className='character__img'
+            style={{
+              backgroundImage: `url(${
+                results.selected === 0
+                  ? imageURL
+                  : characters[results.selected].image.large
+              })`,
+            }}
+          />
+        )}
       </div>
       <div className='header-character__details'>
         <div className='character__details-name'>
@@ -37,25 +42,32 @@ function Header() {
             ) + "% confident"}
           </h2>
         </div>
-        {characters.length === 0 && (
+        {characters.length === 0 ? (
           <>
-            <div className='skeleton skeleton-text' />
-            <div className='skeleton skeleton-text' />
-            <div className='skeleton skeleton-text' />
-            <div className='skeleton skeleton-text' />
+            <div className='skeleton-darker skeleton-text' />
+            <div className='skeleton-darker skeleton-text' />
+            <div className='skeleton-darker skeleton-text' />
+            <div className='skeleton-darker skeleton-text' />
           </>
+        ) : (
+          <div className='description'>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: characters[results.selected].description,
+              }}
+            ></div>
+          </div>
         )}
-        {characters.length !== 0 && (
-          <p className='description'>
-            {JSON.stringify(characters[results.selected].description)
-              .split("\\n\\n~!")
-              .pop()
-              .replaceAll("\\n", "")}
-          </p>
+        {characters.length === 0 ? null : (
+          <a
+            className='content__button explore__button'
+            href={`${characters[results.selected].siteUrl}`}
+            target='_blank'
+            rel='noreferrer'
+          >
+            Explore
+          </a>
         )}
-        <button className='content__button yellow__button' onClick={() => {}}>
-          Explore
-        </button>
       </div>
     </div>
   );
