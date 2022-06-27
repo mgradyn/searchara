@@ -42,7 +42,9 @@ function CardList(props) {
         </h1>
       </div>
       <div className='list-cards-container' {...events} ref={scrollRef}>
-        {mode === "characters" && characters.length !== 0
+        {mode === "characters" &&
+        characters.length !== 0 &&
+        results.length !== 0
           ? characters.flatMap((character, i) =>
               character.id === results[results.selected].id ? null : (
                 <CharacterCard
@@ -63,7 +65,7 @@ function CardList(props) {
                 probability={null}
               />
             ))
-          : mode === "movies" && movies.length !== 0
+          : mode === "movies" && movies.length !== 0 && results.length !== 0
           ? movies.map((movie) => (
               <MovieCard
                 key={uuid()}

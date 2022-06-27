@@ -17,7 +17,7 @@ function Header() {
   return (
     <div className='header overall__max__width section__space'>
       <div className='header-character__img'>
-        {characters.length === 0 && results.selected !== 0 ? (
+        {characters.length === 0 || results.length === 0 ? (
           <div className='character__img skeleton' />
         ) : (
           <div
@@ -34,15 +34,23 @@ function Header() {
       </div>
       <div className='header-character__details'>
         <div className='character__details-name'>
-          <h1 className='title'>{results[results.selected].className}</h1>
+          {characters.length === 0 || results.length === 0 ? (
+            <>
+              <div className='skeleton skeleton-text' />
+            </>
+          ) : (
+            <>
+              <h1 className='title'>{results[results.selected].className}</h1>
 
-          <h2 className='title__highlight'>
-            {Number.parseFloat(results[results.selected].probability).toFixed(
-              2
-            ) + "% confident"}
-          </h2>
+              <h2 className='title__highlight'>
+                {Number.parseFloat(
+                  results[results.selected].probability
+                ).toFixed(2) + "% confident"}
+              </h2>
+            </>
+          )}
         </div>
-        {characters.length === 0 ? (
+        {characters.length === 0 || results.length === 0 ? (
           <>
             <div className='skeleton-darker skeleton-text' />
             <div className='skeleton-darker skeleton-text' />
@@ -58,7 +66,7 @@ function Header() {
             ></div>
           </div>
         )}
-        {characters.length === 0 ? null : (
+        {characters.length === 0 || results.length === 0 ? null : (
           <a
             className='content__button explore__button'
             href={`${characters[results.selected].siteUrl}`}

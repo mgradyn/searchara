@@ -19,11 +19,14 @@ import { MoviesContext } from "../utils/moviesContext";
 import { CharactersContext } from "../utils/charactersContext";
 import { FetchHandler } from "../utils/fetchHandler";
 import { TopLoadingContext } from "../utils/topLoadingContext";
+import { useNavigate } from "react-router-dom";
 
 function SearchResult() {
   const { results, setResults } = useContext(ResultContext);
   const { imageURL, setImageURL } = useContext(ImageContext);
   const { isTopLoading, setIsTopLoading } = useContext(TopLoadingContext);
+
+  const navigate = useNavigate();
 
   const { characters, setCharacters } = useContext(CharactersContext);
 
@@ -31,21 +34,32 @@ function SearchResult() {
 
   const prevSelectedIdRef = useRef();
   useEffect(() => {
-    prevSelectedIdRef.current = results[results.selected].id;
+    if (results.length !== 0) {
+      prevSelectedIdRef.current = results[results.selected].id;
+    }
   });
 
   const prevSelectedId = prevSelectedIdRef.current;
 
   useEffect(() => {
-    if (prevSelectedId !== results[results.selected].id) {
-      // console.log("gotcha", prevSelectedId, results[results.selected].id);
-      // prevSelectedIdRef.current = results[results.selected].id;
-      getMovies({ id: results[results.selected].id });
+    if (imageURL == null) {
+      navigate("/");
     }
+  }, []);
+
+  useEffect(() => {
+    if (results.length !== 0) {
+      if (prevSelectedId !== results[results.selected].id) {
+        // console.log("gotcha", prevSelectedId, results[results.selected].id);
+        // prevSelectedIdRef.current = results[results.selected].id;
+        getMovies({ id: results[results.selected].id });
+      }
+    }
+
     if (isTopLoading === true) {
       setIsTopLoading(false);
     }
-  }, [results[results.selected].id, results, characters]);
+  }, [results, characters]);
 
   return (
     <div className='search__result'>
