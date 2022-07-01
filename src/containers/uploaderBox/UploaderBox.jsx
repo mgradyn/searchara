@@ -21,22 +21,22 @@ function UploaderBox() {
     fileInputRef.current.click();
   };
 
-  const [modalPosition, setModalPosition] = useState({
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-  });
+  // const [modalPosition, setModalPosition] = useState({
+  //   top: 0,
+  //   right: 0,
+  //   bottom: 0,
+  //   left: 0,
+  // });
 
   const triggerModal = () => {
-    const elem = exploreButtonRef.current;
-    let rect = elem.getBoundingClientRect();
+    // const elem = exploreButtonRef.current;
+    // let rect = elem.getBoundingClientRect();
 
-    setModalPosition({
-      top: rect.top,
-      left: rect.left,
-    });
-    console.log(modalPosition);
+    // setModalPosition({
+    //   top: rect.top,
+    //   left: rect.left,
+    // });
+    // console.log(modalPosition);
     setIsModalOpen(true);
   };
 
@@ -87,7 +87,6 @@ function UploaderBox() {
             <CharacterListModal
               open={isModalOpen}
               onClose={() => setIsModalOpen(false)}
-              position={modalPosition}
             />
           </div>
           <div className='search-container-header-option-change'>

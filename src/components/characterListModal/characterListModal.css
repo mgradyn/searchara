@@ -158,3 +158,9 @@
   border-radius: 5px;
   padding: 0 10px 0 10px;
 }
+
+@media screen and (max-width: 620px) {
+  .characterListModal {
+    margin-left: 0 !important;
+  }
+}

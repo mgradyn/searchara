@@ -5,7 +5,7 @@ import { TARGET_CLASSES } from "../../utils/constant";
 
 import "./characterListModal.css";
 
-function CharacterListModal({ open, onClose, position }) {
+function CharacterListModal({ open, onClose }) {
   const ref = useRef(null);
 
   const toggleExit = () => {
@@ -16,52 +16,34 @@ function CharacterListModal({ open, onClose, position }) {
   };
 
   const [scale, setScale] = useState({
-    minWidth: `250px`,
+    minWidth: `200px`,
+    width: `250px`,
     maxHeight: `350px`,
     height: `350px`,
+    marginLeft: `calc(125px + 24%)`,
     // top: 0,
     // left: 0,
     large: false,
   });
 
-  useEffect(() => {
-    console.log(position.top);
-    if (position.top === 0) {
-      setScale({
-        minWidth: `250px`,
-        maxHeight: `350px`,
-        height: `350px`,
-        // top: `calc(100% - 800px)`,
-        // left: `calc(50% + 200px )`,
-        large: false,
-      });
-    } else {
-      setScale({
-        minWidth: `250px`,
-        maxHeight: `350px`,
-        height: `350px`,
-        // top: `calc(${position.top}px - 150px)`,
-        // left: position.left,
-        large: false,
-      });
-    }
-  }, [position]);
-
   const toggleScale = () => {
     if (!scale.large) {
       setScale({
-        minWidth: `80%`,
-        maxHeight: `80%`,
-        height: `80%`,
+        minWidth: `90%`,
+        maxHeight: `90%`,
+        height: `90%`,
+        marginLeft: `0`,
         // top: `calc(100% - 800px)`,
         // left: `calc(50% - 400px )`,
         large: true,
       });
     } else {
       setScale({
-        minWidth: `250px`,
+        minWidth: `200px`,
+        width: `250px`,
         maxHeight: `350px`,
         height: `350px`,
+        marginLeft: `calc(125px + 24%)`,
         // top: `calc(${position.top}px - 150px)`,
         // left: position.left,
         large: false,
@@ -79,8 +61,8 @@ function CharacterListModal({ open, onClose, position }) {
           className='characterListModal appear'
           ref={ref}
           style={{
-            // top: scale.top,
-            // left: scale.left,
+            marginLeft: scale.marginLeft,
+            width: scale.width,
             minWidth: scale.minWidth,
             maxHeight: scale.maxHeight,
             height: scale.height,
