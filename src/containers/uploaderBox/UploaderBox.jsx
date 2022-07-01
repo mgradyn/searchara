@@ -4,6 +4,7 @@ import { ImageContext } from "../../utils/imageContext";
 import "./uploaderBox.css";
 import { Icon } from "@iconify/react";
 import SearchBar from "../../components/searchBar/SearchBar";
+import CharacterListModal from "../../components/characterListModal/characterListModal";
 
 import { UploadHandler } from "../../utils/uploadHandler";
 
@@ -12,6 +13,7 @@ function UploaderBox() {
 
   const imageRef = useRef();
   const fileInputRef = useRef();
+  const exploreButtonRef = useRef();
 
   const { uploadImage } = UploadHandler();
 
@@ -19,8 +21,28 @@ function UploaderBox() {
     fileInputRef.current.click();
   };
 
-  console.log("render box");
+  const [modalPosition, setModalPosition] = useState({
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+  });
 
+  const triggerModal = () => {
+    const elem = exploreButtonRef.current;
+    let rect = elem.getBoundingClientRect();
+
+    setModalPosition({
+      top: rect.top,
+      left: rect.left,
+    });
+    console.log(modalPosition);
+    setIsModalOpen(true);
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  console.log("render box");
   return (
     <div className='search-container'>
       <h1 className='sub__title'>Upload Image</h1>
@@ -51,15 +73,22 @@ function UploaderBox() {
             )}
           </button>
         </div>
+
         <div className='search-container-header-option'>
           <div className='search-container-header-option-supported'>
             <h1 className='sub__title'>Supported Characters</h1>
             <button
               className='content__button white__button'
-              onClick={() => {}}
+              onClick={triggerModal}
+              ref={exploreButtonRef}
             >
               Explore
             </button>
+            <CharacterListModal
+              open={isModalOpen}
+              onClose={() => setIsModalOpen(false)}
+              position={modalPosition}
+            />
           </div>
           <div className='search-container-header-option-change'>
             <button className='content__button red__button' onClick={() => {}}>
