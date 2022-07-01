@@ -26,10 +26,28 @@
   }
 }
 
-.characterListModal {
+.container {
+  width: 100%;
+  height: 100%;
   position: fixed;
-  background: var(--color-text-white);
   z-index: 1000;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+}
+
+.sub__container {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.characterListModal {
+  background: var(--color-text-white);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
