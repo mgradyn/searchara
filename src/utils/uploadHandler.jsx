@@ -9,6 +9,18 @@ export const UploadHandler = () => {
   const uploadImage = (e) => {
     const { files } = e.target;
     if (files.length > 0) {
+      console.log(files[0]);
+      const url = URL.createObjectURL(files[0]);
+      setImageURL(url);
+    } else {
+      setImageURL(null);
+    }
+  };
+
+  const uploadDropImage = (e) => {
+    const { files } = e.dataTransfer;
+    if (files.length > 0) {
+      console.log(files[0]);
       const url = URL.createObjectURL(files[0]);
       setImageURL(url);
     } else {
@@ -21,5 +33,9 @@ export const UploadHandler = () => {
     setResults([]);
   };
 
-  return { uploadImage: uploadImage, handleOnChange: handleOnChange };
+  return {
+    uploadImage: uploadImage,
+    handleOnChange: handleOnChange,
+    uploadDropImage: uploadDropImage,
+  };
 };
