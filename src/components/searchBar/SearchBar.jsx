@@ -48,6 +48,13 @@ function SearchBar(props) {
     handleOnChange(e);
   };
 
+  const identifyImage = () => {
+    if (isUploadBoxOpen && navbar) {
+      toggleExit();
+    }
+    identify();
+  };
+
   console.log("render search bar");
 
   return (
@@ -83,7 +90,10 @@ function SearchBar(props) {
         ref={textInputRef}
         onChange={toggleUrlUpload}
       />
-      <button className='content__button search__button' onClick={identify}>
+      <button
+        className='content__button search__button'
+        onClick={identifyImage}
+      >
         Search
         <Icon className='search__icon__inside' icon='akar-icons:search' />
       </button>

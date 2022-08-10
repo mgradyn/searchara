@@ -22,9 +22,7 @@ function Header() {
   return (
     <div className='header overall__max__width section__space'>
       <div className='header-character__img'>
-        {characters.length === 0 ||
-        results.length === 0 ||
-        currentImage == null ? (
+        {characters.length === 0 || results.length === 0 ? (
           <div className='character__img skeleton' />
         ) : (
           <div
