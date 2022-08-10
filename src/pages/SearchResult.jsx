@@ -11,7 +11,7 @@ import { ImageContext } from "../utils/imageContext";
 import "./searchResult.css";
 import background_img from "../assets/background.jpg";
 
-import Navbar from "../components/navbar/navbar";
+import Navbar from "../containers/navbar/navbar";
 import Header from "../containers/header/Header";
 import CardList from "../containers/cardList/cardList";
 

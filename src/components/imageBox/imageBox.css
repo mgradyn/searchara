@@ -1,0 +1,48 @@
+.imageBox {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  background: var(--color-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  height: clamp(250px, 22rem, 25rem);
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.imageBox.dragover {
+  opacity: 0.6;
+}
+
+.imageBox:hover {
+  cursor: pointer;
+}
+.imageBox .big__icon {
+  width: 20%;
+  height: auto;
+}
+
+.imageBox img {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-height: 100%;
+  height: auto;
+}
+
+.imageBox input {
+  width: 0%;
+  height: 0%;
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media screen and (max-width: 860px) {
+  .imageBox {
+    margin-bottom: 1rem;
+  }
+}

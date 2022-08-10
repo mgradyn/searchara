@@ -1,0 +1,51 @@
+.optionBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.optionBox-change {
+  display: flex;
+  justify-content: flex-end;
+  order: 2;
+}
+
+.optionBox-supported {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  margin-bottom: 1rem;
+  order: 1;
+}
+
+.optionBox-supported h1 {
+  font-weight: 500;
+}
+
+.optionBox .white__button {
+  background: var(--color-text-white);
+}
+
+.optionBox .red__button {
+  background: var(--color-highlight-red);
+}
+
+@media screen and (max-width: 860px) {
+  .optionBox {
+    flex-direction: row;
+  }
+
+  .optionBox-change {
+    display: block-inline;
+    align-items: flex-end;
+    vertical-align: bottom;
+    order: 1;
+  }
+
+  .optionBox-supported {
+    margin-bottom: 0;
+    order: 2;
+  }
+}

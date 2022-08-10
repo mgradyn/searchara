@@ -21,6 +21,7 @@ import Progress from "./components/progressBar/progress";
 
 import Home from "./pages/Home";
 import SearchResult from "./pages/SearchResult";
+import Loading from "./pages/Loading";
 // const LazyHome = lazy(()=> import("./pages/Home"));
 
 function App() {
@@ -82,7 +83,7 @@ function App() {
   }, []);
 
   if (isModelLoading) {
-    return <h2>Model Loading....</h2>;
+    return <Loading />;
   }
   return (
     <>

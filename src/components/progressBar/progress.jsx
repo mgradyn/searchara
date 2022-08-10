@@ -1,4 +1,4 @@
-import { useNProgress } from "../../utils/nProgress/useNProgress";
+import { useNProgress } from "../../utils/useNProgress";
 
 function Progress({ isAnimating }) {
   const { animationDuration, isFinished, progress } = useNProgress({

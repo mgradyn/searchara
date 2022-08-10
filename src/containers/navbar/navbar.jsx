@@ -1,6 +1,6 @@
 import { memo } from "react";
 import logo from "../../assets/logo.png";
-import SearchBar from "../searchBar/SearchBar";
+import SearchBar from "../../components/searchBar/SearchBar";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 

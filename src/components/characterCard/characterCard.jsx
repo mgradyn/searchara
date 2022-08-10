@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef, useContext, memo } from "react";
+import { useContext, memo } from "react";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { ResultContext } from "../../utils/resultContext";
 import { MoviesContext } from "../../utils/moviesContext";
-import { CharactersContext } from "../../utils/charactersContext";
 import { TopLoadingContext } from "../../utils/topLoadingContext";
 
 import "./characterCard.css";
@@ -11,9 +10,8 @@ import "./characterCard.css";
 function CharacterCard(props) {
   const navigate = useNavigate();
   const { results, setResults } = useContext(ResultContext);
-  const { movies, setMovies } = useContext(MoviesContext);
-  const { characters, setCharacters } = useContext(CharactersContext);
-  const { isTopLoading, setIsTopLoading } = useContext(TopLoadingContext);
+  const { setMovies } = useContext(MoviesContext);
+  const { setIsTopLoading } = useContext(TopLoadingContext);
 
   const navigateNewCharacter = () => {
     setIsTopLoading(true);

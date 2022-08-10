@@ -1,13 +1,10 @@
 import { useContext } from "react";
 import { ImageContext } from "./imageContext";
-import { ResultContext } from "./resultContext";
 
 export const UploadHandler = () => {
-  const { imageURL, setImageURL } = useContext(ImageContext);
-  const { results, setResults } = useContext(ResultContext);
+  const { setImageURL } = useContext(ImageContext);
 
-  const uploadImage = (e) => {
-    const { files } = e.target;
+  const upload = ({ files }) => {
     if (files.length > 0) {
       console.log(files[0]);
       const url = URL.createObjectURL(files[0]);
@@ -17,15 +14,12 @@ export const UploadHandler = () => {
     }
   };
 
+  const uploadImage = (e) => {
+    upload(e.target);
+  };
+
   const uploadDropImage = (e) => {
-    const { files } = e.dataTransfer;
-    if (files.length > 0) {
-      console.log(files[0]);
-      const url = URL.createObjectURL(files[0]);
-      setImageURL(url);
-    } else {
-      setImageURL(null);
-    }
+    upload(e.dataTransfer);
   };
 
   const handleOnChange = (e) => {

@@ -23,81 +23,11 @@
   margin: 0 0 1rem;
 }
 
-.search-container-header-upload {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  background: var(--color-bg);
-  border-radius: 20px;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-  height: clamp(250px, 22rem, 25rem);
-  font-family: var(--font-family);
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 30px;
-}
-
-.search-container-header-upload.dragover {
-  opacity: 0.6;
-}
-
-.search-container-header-upload:hover {
-  cursor: pointer;
-}
-.search-container-header-upload .big__icon {
-  width: 20%;
-  height: auto;
-}
-
-.search-container-header-upload img {
-  box-sizing: border-box;
-  min-width: 200px;
-  max-height: 100%;
-  height: auto;
-}
-
-.search-container-header-upload input {
+.search-container .uploadInput {
   width: 0%;
   height: 0%;
   visibility: hidden;
   opacity: 0;
-}
-
-.search-container-header-option {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.search-container-header-option-change {
-  display: flex;
-  justify-content: flex-end;
-  order: 2;
-}
-
-.search-container-header-option-supported {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
-  margin-bottom: 1rem;
-  order: 1;
-}
-
-.search-container-header-option-supported h1 {
-  font-weight: 500;
-}
-
-.search-container-header-option .white__button {
-  background: var(--color-text-white);
-}
-
-.search-container-header-option .red__button {
-  background: var(--color-highlight-red);
 }
 
 .search-container-footer {
@@ -117,25 +47,5 @@
     grid-auto-flow: row;
     grid-template-columns: 1fr;
     margin: 0 0 1rem;
-  }
-
-  .search-container-header-upload {
-    margin-bottom: 1rem;
-  }
-
-  .search-container-header-option {
-    flex-direction: row;
-  }
-
-  .search-container-header-option-change {
-    display: block-inline;
-    align-items: flex-end;
-    vertical-align: bottom;
-    order: 1;
-  }
-
-  .search-container-header-option-supported {
-    margin-bottom: 0;
-    order: 2;
   }
 }
