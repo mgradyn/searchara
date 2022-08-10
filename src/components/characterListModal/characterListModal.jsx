@@ -9,9 +9,7 @@ function CharacterListModal({ open, onClose }) {
   const ref = useRef(null);
 
   const toggleExit = () => {
-    //
-    const div = ref.current;
-    div.className = "disappear characterListModal";
+    ref.current.className = "disappear characterListModal";
     setTimeout(() => onClose(), 150);
   };
 

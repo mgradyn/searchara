@@ -25,6 +25,7 @@ function SearchResult() {
   const { results, setResults } = useContext(ResultContext);
   const { imageURL, setImageURL } = useContext(ImageContext);
   const { isTopLoading, setIsTopLoading } = useContext(TopLoadingContext);
+  const { movies, setMovies } = useContext(MoviesContext);
 
   const navigate = useNavigate();
 
@@ -68,7 +69,12 @@ function SearchResult() {
           <div className='search__result-container__navbar-navbar-background'>
             <div
               className='search__result-container__navbar-navbar-background-img'
-              style={{ backgroundImage: `url(${background_img})` }}
+              style={{
+                backgroundImage:
+                  movies.length !== 0 && movies[0].node.bannerImage !== null
+                    ? `url(${movies[0].node.bannerImage})`
+                    : `url(${background_img})`,
+              }}
             />
             <div className='black__overlay' />
           </div>

@@ -9,23 +9,30 @@ import "./header.css";
 function Header() {
   const { results, setResults } = useContext(ResultContext);
   const { imageURL, setImageURL } = useContext(ImageContext);
+  const [currentImage, setCurrentImage] = useState(null);
 
   const { characters, setCharacters } = useContext(CharactersContext);
 
   console.log("Header render");
 
+  useEffect(() => {
+    setCurrentImage(imageURL);
+  }, [results]);
+
   return (
     <div className='header overall__max__width section__space'>
       <div className='header-character__img'>
-        {characters.length === 0 || results.length === 0 ? (
+        {characters.length === 0 ||
+        results.length === 0 ||
+        currentImage == null ? (
           <div className='character__img skeleton' />
         ) : (
           <div
             className='character__img'
             style={{
               backgroundImage: `url(${
-                results.selected === 0
-                  ? imageURL
+                results.selected === 0 && currentImage != null
+                  ? currentImage
                   : characters[results.selected].image.large
               })`,
             }}

@@ -9,7 +9,7 @@ function Navbar() {
     <div className='navbar section__padding'>
       <div className='navbar-content overall__max__width'>
         <Link className='link' to='/'>
-          <img src={logo} alt='logo' />
+          <img className='background__img' src={logo} alt='logo' />
         </Link>
         <SearchBar navbar={true} />
       </div>

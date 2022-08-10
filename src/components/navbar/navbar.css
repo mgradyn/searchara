@@ -16,7 +16,7 @@
   max-width: 250px;
 }
 
-.navbar-content img {
+.navbar-content .background__img {
   max-width: 250px;
   max-height: 250px;
 }
@@ -24,7 +24,7 @@
   .navbar-content {
     flex-direction: column;
   }
-  .navbar-content img {
+  .navbar-content .background__img {
     margin-bottom: 3rem;
   }
 }

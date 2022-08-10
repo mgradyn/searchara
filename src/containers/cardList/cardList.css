@@ -7,7 +7,6 @@
   display: flex;
   overflow-x: scroll;
   width: 100%;
-
   margin-top: 2rem;
 }
 
@@ -19,4 +18,10 @@
 .list-cards-container {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+@media screen and (min-width: 1280px) {
+  .list-cards-container {
+    min-width: 1280px;
+  }
 }

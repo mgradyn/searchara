@@ -84,6 +84,7 @@ query ($id: Int){
                 coverImage{
                     extraLarge
                 }
+                bannerImage
                 }
             }
         }

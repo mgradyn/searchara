@@ -68,6 +68,3 @@
     grid-template-rows: repeat(8, 1fr);
   }
 }
-
-@media screen and (max-width: 960px) {
-}

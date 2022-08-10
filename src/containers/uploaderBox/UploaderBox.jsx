@@ -5,7 +5,6 @@ import "./uploaderBox.css";
 import { Icon } from "@iconify/react";
 import SearchBar from "../../components/searchBar/SearchBar";
 import CharacterListModal from "../../components/characterListModal/characterListModal";
-import PropTypes from "prop-types";
 
 import { UploadHandler } from "../../utils/uploadHandler";
 
@@ -103,7 +102,10 @@ function UploaderBox() {
             />
           </div>
           <div className='search-container-header-option-change'>
-            <button className='content__button red__button' onClick={() => {}}>
+            <button
+              className='content__button red__button'
+              onClick={triggerUpload}
+            >
               Change
             </button>
           </div>

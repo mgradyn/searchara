@@ -30,7 +30,7 @@ export const UploadHandler = () => {
 
   const handleOnChange = (e) => {
     setImageURL(e.target.value);
-    setResults([]);
+    // setResults([]);
   };
 
   return {
