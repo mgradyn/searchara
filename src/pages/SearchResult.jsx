@@ -1,35 +1,27 @@
-import {
-  useState,
-  useCallback,
-  useEffect,
-  useRef,
-  useContext,
-  memo,
-} from "react";
+import { useEffect, useRef, useContext, memo } from "react";
 import { ResultContext } from "../utils/resultContext";
 import { ImageContext } from "../utils/imageContext";
 import "./searchResult.css";
-import background_img from "../assets/background.jpg";
 
 import Navbar from "../containers/navbar/navbar";
 import Header from "../containers/header/Header";
 import CardList from "../containers/cardList/cardList";
+import BackgroundNavbar from "../components/backgroundNavbar/backgroundNavbar";
 
-import { MoviesContext } from "../utils/moviesContext";
 import { CharactersContext } from "../utils/charactersContext";
 import { FetchHandler } from "../utils/fetchHandler";
 import { TopLoadingContext } from "../utils/topLoadingContext";
+import { useEffectOnce } from "../utils/useEffectOnce";
 import { useNavigate } from "react-router-dom";
 
 function SearchResult() {
-  const { results, setResults } = useContext(ResultContext);
-  const { imageURL, setImageURL } = useContext(ImageContext);
+  const { results } = useContext(ResultContext);
+  const { imageURL } = useContext(ImageContext);
   const { isTopLoading, setIsTopLoading } = useContext(TopLoadingContext);
-  const { movies, setMovies } = useContext(MoviesContext);
 
   const navigate = useNavigate();
 
-  const { characters, setCharacters } = useContext(CharactersContext);
+  const { characters } = useContext(CharactersContext);
 
   const { getMovies } = FetchHandler();
 
@@ -42,17 +34,15 @@ function SearchResult() {
 
   const prevSelectedId = prevSelectedIdRef.current;
 
-  useEffect(() => {
+  useEffectOnce(() => {
     if (imageURL == null) {
       navigate("/");
     }
-  }, []);
+  });
 
   useEffect(() => {
     if (results.length !== 0) {
       if (prevSelectedId !== results[results.selected].id) {
-        // console.log("gotcha", prevSelectedId, results[results.selected].id);
-        // prevSelectedIdRef.current = results[results.selected].id;
         getMovies({ id: results[results.selected].id });
       }
     }
@@ -65,20 +55,7 @@ function SearchResult() {
   return (
     <div className='search__result'>
       <div className='search__result-container__navbar'>
-        <div className='search__result-container__navbar-navbar'>
-          <div className='search__result-container__navbar-navbar-background'>
-            <div
-              className='search__result-container__navbar-navbar-background-img'
-              style={{
-                backgroundImage:
-                  movies.length !== 0 && movies[0].node.bannerImage !== null
-                    ? `url(${movies[0].node.bannerImage})`
-                    : `url(${background_img})`,
-              }}
-            />
-            <div className='black__overlay' />
-          </div>
-        </div>
+        <BackgroundNavbar />
         <div className='search__result-container__navbar-overlay'>
           <Navbar />
         </div>

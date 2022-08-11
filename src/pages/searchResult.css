@@ -7,33 +7,8 @@
   display: grid;
 }
 
-.search__result-container__navbar-overlay,
-.search__result-container__navbar-navbar {
+.search__result-container__navbar-overlay {
   grid-area: 1 / 1;
-}
-
-.search__result-container__navbar-navbar-background {
-  display: grid;
-  overflow: hidden;
-}
-
-.search__result-container__navbar-navbar-background .black__overlay,
-.search__result-container__navbar-navbar-background-img {
-  grid-area: 1 / 1;
-}
-
-.search__result-container__navbar-navbar-background-img {
-  width: 100%;
-  height: 600px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.search__result-container__navbar-navbar-background .black__overlay {
-  height: 100%;
-  width: 100%;
-  background: rgba(34, 34, 34, 0.9);
 }
 
 .search__result-content {

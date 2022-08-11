@@ -1,0 +1,27 @@
+.backgroundNavbar {
+  grid-area: 1 / 1;
+}
+
+.backgroundNavbar-background {
+  display: grid;
+  overflow: hidden;
+}
+
+.backgroundNavbar-background .black__overlay,
+.backgroundNavbar-background-img {
+  grid-area: 1 / 1;
+}
+
+.backgroundNavbar-background-img {
+  width: 100%;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.backgroundNavbar-background .black__overlay {
+  height: 100%;
+  width: 100%;
+  background: rgba(34, 34, 34, 0.9);
+}
