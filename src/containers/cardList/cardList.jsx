@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useContext, memo } from "react";
+import { useRef, useContext, memo } from "react";
 import { v4 as uuid } from "uuid";
 
 import "./cardList.css";
@@ -12,12 +12,9 @@ import { CharactersContext } from "../../utils/charactersContext";
 import { MoviesContext } from "../../utils/moviesContext";
 import { ResultContext } from "../../utils/resultContext";
 
-//characters
+//placeholders
 
 const characterList = [{}, {}, {}, {}, {}];
-
-//movies
-
 const movieList = [{}, {}, {}, {}, {}, {}];
 
 function CardList(props) {
@@ -30,9 +27,9 @@ function CardList(props) {
 
   const { mode } = props;
 
-  const { characters, setCharacters } = useContext(CharactersContext);
-  const { results, setResults } = useContext(ResultContext);
-  const { movies, setMovies } = useContext(MoviesContext);
+  const { characters } = useContext(CharactersContext);
+  const { results } = useContext(ResultContext);
+  const { movies } = useContext(MoviesContext);
 
   return (
     <div className='list overall__max__width '>

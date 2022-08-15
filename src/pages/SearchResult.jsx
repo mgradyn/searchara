@@ -18,21 +18,20 @@ function SearchResult() {
   const { results } = useContext(ResultContext);
   const { imageURL } = useContext(ImageContext);
   const { isTopLoading, setIsTopLoading } = useContext(TopLoadingContext);
+  const { characters } = useContext(CharactersContext);
 
   const navigate = useNavigate();
-
-  const { characters } = useContext(CharactersContext);
+  const prevSelectedIdRef = useRef();
 
   const { getMovies } = FetchHandler();
 
-  const prevSelectedIdRef = useRef();
+  const prevSelectedId = prevSelectedIdRef.current;
+
   useEffect(() => {
     if (results.length !== 0) {
       prevSelectedIdRef.current = results[results.selected].id;
     }
   });
-
-  const prevSelectedId = prevSelectedIdRef.current;
 
   useEffectOnce(() => {
     if (imageURL == null) {

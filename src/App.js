@@ -1,10 +1,5 @@
-import { useState, useEffect, useRef, useMemo } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { useState, useEffect, useMemo } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { loadGraphModel } from "@tensorflow/tfjs-converter";
 import "@tensorflow/tfjs-backend-webgl";
 
@@ -22,7 +17,10 @@ import Progress from "./components/progressBar/progress";
 import Home from "./pages/Home";
 import SearchResult from "./pages/SearchResult";
 import Loading from "./pages/Loading";
+
 // const LazyHome = lazy(()=> import("./pages/Home"));
+
+import { useMemoUpdate } from "./utils/useMemoUpdate";
 
 function App() {
   const [results, setResults] = useState([]);
@@ -38,6 +36,18 @@ function App() {
   const [isModelLoading, setIsModelLoading] = useState(false);
 
   // provider
+
+  // const providerResults = useMemoUpdate(results, setResults);
+
+  // const providerImage = useMemoUpdate(imageURL, setImageURL);
+
+  // const providerMovies = useMemoUpdate(movies, setMovies);
+
+  // const providerCharacters = useMemoUpdate(characters, setCharacters);
+
+  // const providerTopLoading = useMemoUpdate(isTopLoading, setIsTopLoading);
+
+  // const providerModel = useMemoUpdate(model, setModel);
 
   const providerResults = useMemo(
     () => ({ results, setResults }),
@@ -69,7 +79,9 @@ function App() {
   const loadModel = async () => {
     setIsModelLoading(true);
     try {
-      const model = await loadGraphModel("./model/model.json");
+      const model = await loadGraphModel(
+        "https://raw.githubusercontent.com/mgradyn/ani_i2/main/model.json"
+      );
       setModel(model);
       setIsModelLoading(false);
     } catch (error) {

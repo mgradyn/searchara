@@ -14,9 +14,10 @@ function SearchBar(props) {
   const { uploadImage, handleOnChange } = UploadHandler();
   const { identify } = ModelHandler();
 
-  const { imageURL, setImageURL } = useContext(ImageContext);
+  const { imageURL } = useContext(ImageContext);
 
   //navbar only
+
   const [isUploadBoxOpen, setIsUploadBoxOpen] = useState(false);
   const uploadBoxRef = useRef(null);
 

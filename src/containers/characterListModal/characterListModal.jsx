@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
 import ReactDom from "react-dom";
 import { Icon } from "@iconify/react";
 import { TARGET_CLASSES } from "../../utils/constant";
@@ -31,8 +31,6 @@ function CharacterListModal({ open, onClose }) {
         maxHeight: `90%`,
         height: `90%`,
         marginLeft: `0`,
-        // top: `calc(100% - 800px)`,
-        // left: `calc(50% - 400px )`,
         large: true,
       });
     } else {
@@ -42,8 +40,6 @@ function CharacterListModal({ open, onClose }) {
         maxHeight: `350px`,
         height: `350px`,
         marginLeft: `calc(125px + 24%)`,
-        // top: `calc(${position.top}px - 150px)`,
-        // left: position.left,
         large: false,
       });
     }
