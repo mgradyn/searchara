@@ -18,7 +18,6 @@ import Progress from "./components/progressBar/progress";
 import Home from "./pages/Home";
 import SearchResult from "./pages/SearchResult";
 import Loading from "./pages/Loading";
-import Crop from "./pages/Crop";
 
 // const LazyHome = lazy(()=> import("./pages/Home"));
 
