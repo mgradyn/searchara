@@ -14,17 +14,17 @@ import { useLocation } from "react-router-dom";
 import { FetchHandler } from "./fetchHandler";
 
 export const ModelHandler = () => {
-  const { results, setResults } = useContext(ResultContext);
-  const { imageURL, setImageURL } = useContext(ImageContext);
-  const { isTopLoading, setIsTopLoading } = useContext(TopLoadingContext);
+  const { setResults } = useContext(ResultContext);
+  const { imageURL } = useContext(ImageContext);
+  const { setIsTopLoading } = useContext(TopLoadingContext);
 
-  const { model, setModel } = useContext(ModelContext);
+  const { model } = useContext(ModelContext);
   const { detectionModel } = useContext(DetectionModelContext);
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { getCharacters, getMovies } = FetchHandler();
+  const { getCharacters } = FetchHandler();
 
   const getResult = (newImageURL) => {
     let img = new Image();

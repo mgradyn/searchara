@@ -1,12 +1,10 @@
 import { useContext } from "react";
 import { CharactersContext } from "./charactersContext";
 import { MoviesContext } from "./moviesContext";
-import { ResultContext } from "./resultContext";
 
 export const FetchHandler = () => {
-  const { characters, setCharacters } = useContext(CharactersContext);
-  const { movies, setMovies } = useContext(MoviesContext);
-  const { results, setResults } = useContext(ResultContext);
+  const { setCharacters } = useContext(CharactersContext);
+  const { setMovies } = useContext(MoviesContext);
 
   const characterQuery = `
 query ($id: Int, $id2: Int, $id3: Int, $id4: Int, $id5: Int){
