@@ -19,10 +19,6 @@ import Home from "./pages/Home";
 import SearchResult from "./pages/SearchResult";
 import Loading from "./pages/Loading";
 
-// const LazyHome = lazy(()=> import("./pages/Home"));
-
-import { useMemoUpdate } from "./utils/useMemoUpdate";
-
 function App() {
   const [results, setResults] = useState([]);
   const [imageURL, setImageURL] = useState(null);
@@ -36,20 +32,6 @@ function App() {
   const [characters, setCharacters] = useState([]);
 
   const [isModelLoading, setIsModelLoading] = useState(false);
-
-  // provider
-
-  // const providerResults = useMemoUpdate(results, setResults);
-
-  // const providerImage = useMemoUpdate(imageURL, setImageURL);
-
-  // const providerMovies = useMemoUpdate(movies, setMovies);
-
-  // const providerCharacters = useMemoUpdate(characters, setCharacters);
-
-  // const providerTopLoading = useMemoUpdate(isTopLoading, setIsTopLoading);
-
-  // const providerModel = useMemoUpdate(model, setModel);
 
   const providerResults = useMemo(
     () => ({ results, setResults }),
