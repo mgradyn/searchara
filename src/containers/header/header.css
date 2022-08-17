@@ -53,6 +53,7 @@
 .header-character__img .character__img {
   overflow: hidden;
   border-radius: 40px;
+  background-color: var(--color-total-black);
   width: clamp(200px, 300px, 300px);
   height: clamp(200px, 400px, 400px);
   background-repeat: no-repeat;
