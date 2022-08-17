@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 import UploaderBox from "../containers/uploaderBox/UploaderBox";
 
 function Home() {
-  console.log("render");
+  // console.log("render");
 
   return (
     <div className='home section__padding'>

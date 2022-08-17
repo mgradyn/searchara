@@ -16,7 +16,7 @@ function UploaderBox() {
     fileInputRef.current.click();
   };
 
-  console.log("render box");
+  // console.log("render box");
   return (
     <div className='search-container'>
       <h1 className='sub__title'>Upload Image</h1>

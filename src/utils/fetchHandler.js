@@ -104,7 +104,7 @@ query ($id: Int){
     // console.log(results);
 
     setMovies(data.data.character0.media.edges);
-    console.log(data.data.character0.media.edges);
+    // console.log(data.data.character0.media.edges);
   };
 
   const handleCharacters = (data) => {

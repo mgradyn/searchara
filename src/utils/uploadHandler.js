@@ -6,7 +6,7 @@ export const UploadHandler = () => {
 
   const upload = ({ files }) => {
     if (files.length > 0) {
-      console.log(files[0]);
+      // console.log(files[0]);
       const url = URL.createObjectURL(files[0]);
       setImageURL(url);
     } else {

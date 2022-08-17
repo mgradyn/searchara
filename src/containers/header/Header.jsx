@@ -13,7 +13,7 @@ function Header() {
 
   const { characters, setCharacters } = useContext(CharactersContext);
 
-  console.log("Header render");
+  // console.log("Header render");
 
   useEffect(() => {
     setCurrentImage(imageURL);

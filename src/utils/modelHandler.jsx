@@ -70,7 +70,7 @@ export const ModelHandler = () => {
 
       setResults(top5, navigate(navigateUrl));
 
-      console.log(top5);
+      // console.log(top5);
     };
   };
 

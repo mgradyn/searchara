@@ -56,7 +56,7 @@ function SearchBar(props) {
     identify();
   };
 
-  console.log("render search bar");
+  // console.log("render search bar");
 
   return (
     <div
