@@ -68,7 +68,6 @@ function SearchBar(props) {
         <input
           type='file'
           accept='image/*'
-          capture='camera'
           className='uploadInput'
           onChange={toggleImageUpload}
           ref={fileInputRef}
