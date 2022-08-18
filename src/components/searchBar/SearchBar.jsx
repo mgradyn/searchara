@@ -88,6 +88,14 @@ function SearchBar(props) {
         type='text'
         placeholder='Paste or enter image URL'
         ref={textInputRef}
+        className='big'
+        onChange={toggleUrlUpload}
+      />
+      <input
+        type='text'
+        placeholder='Enter image URL'
+        ref={textInputRef}
+        className='small'
         onChange={toggleUrlUpload}
       />
       <button

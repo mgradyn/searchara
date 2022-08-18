@@ -3,10 +3,11 @@ import { useRef, memo } from "react";
 import "./uploaderBox.css";
 
 import SearchBar from "../../components/searchBar/SearchBar";
-import OptionBox from "../../components/optionBox/optionBox";
+import OptionBox from "../optionBox/optionBox";
 import ImageBox from "../../components/imageBox/imageBox";
 
 import { UploadHandler } from "../../utils/uploadHandler";
+import ExploreCharactersButton from "../../components/exploreCharactersButton/exploreCharactersButton";
 
 function UploaderBox() {
   const fileInputRef = useRef();
@@ -35,6 +36,9 @@ function UploaderBox() {
       <div className='search-container-footer'>
         <h1 className='sub__title'>Or upload from URL</h1>
         <SearchBar navbar={false} />
+        <div className='extra__explore__characters'>
+          <ExploreCharactersButton />
+        </div>
       </div>
     </div>
   );

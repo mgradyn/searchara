@@ -24,17 +24,13 @@
   font-weight: 500;
 }
 
-.optionBox .white__button {
-  background: var(--color-text-white);
-}
-
 .optionBox .red__button {
   background: var(--color-highlight-red);
 }
 
 @media screen and (max-width: 860px) {
   .optionBox {
-    flex-direction: row;
+    display: none;
   }
 
   .optionBox-change {
