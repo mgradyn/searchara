@@ -49,3 +49,13 @@
 .movieRef {
   display: flex;
 }
+
+@media screen and (max-width: 450px) {
+  .movie__img {
+    width: calc(168px + 2rem);
+    height: 224px;
+  }
+  .movie__card__container {
+    max-width: calc(168px + 2rem);
+  }
+}

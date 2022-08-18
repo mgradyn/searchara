@@ -86,7 +86,16 @@
     max-height: calc(224px + 2rem + 192px);
   }
 
+  .char__card__container .title__highlight {
+    padding: 0.5rem 0 1.5rem 0;
+  }
+
   .char__card__details button {
     justify-self: flex-end;
+    border-radius: 14px;
+    max-height: 35px;
+    height: 35px;
+    font-size: 24px;
+    padding: 0;
   }
 }

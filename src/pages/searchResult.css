@@ -1,6 +1,6 @@
 .search__result {
   display: grid;
-  grid-template-rows: repeat(8, 1fr);
+  grid-template-rows: repeat(11, 0.1fr);
 }
 
 .search__result-container__navbar {
@@ -38,11 +38,11 @@
   align-items: center;
 }
 
-@media screen and (max-width: 960px) {
+/* @media screen and (max-width: 960px) {
   .search__result {
-    grid-template-rows: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 0.1fr);
   }
-}
+} */
 
 /* @media screen and (max-width: 450px) {
   .search__result {
