@@ -202,6 +202,29 @@
     padding: 0.2rem 0.8rem !important;
     min-width: fit-content;
   }
+
+  .search__bar button.upload__button {
+    align-items: center;
+    text-align: center;
+    padding: 0.8rem !important;
+    font-size: 0 !important;
+    min-width: fit-content;
+    line-height: 0px;
+  }
+
+  .search__bar button.search__button.small {
+    align-items: center;
+    text-align: center;
+    padding: 0.8rem !important;
+    font-size: 0 !important;
+    min-width: fit-content;
+    line-height: 0px;
+  }
+
+  .search__bar button.search__button.small .search__icon__inside {
+    display: inline-block;
+    font-size: 20px;
+  }
 }
 
 @media screen and (max-width: 320px) {
