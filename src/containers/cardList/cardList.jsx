@@ -1,9 +1,9 @@
-import { useRef, useContext, memo } from "react";
+import { useContext, memo } from "react";
 import { v4 as uuid } from "uuid";
 
 import "./cardList.css";
 
-import { useDraggable } from "react-use-draggable-scroll";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 import CharacterCard from "../../components/characterCard/characterCard";
 import MovieCard from "../../components/movieCard/movieCard";
@@ -18,13 +18,6 @@ const characterList = [{}, {}, {}, {}, {}];
 const movieList = [{}, {}, {}, {}, {}, {}];
 
 function CardList(props) {
-  const scrollRef = useRef();
-  const { events } = useDraggable(scrollRef, {
-    applyRubberBandEffect: true,
-    decayRate: 0.85,
-    safeDisplacement: 12,
-  });
-
   const { mode } = props;
 
   const { characters } = useContext(CharactersContext);
@@ -38,7 +31,7 @@ function CardList(props) {
           {mode === "characters" ? "Similar Characters" : "Movies and Shows"}
         </h1>
       </div>
-      <div className='list-cards-container' {...events} ref={scrollRef}>
+      <ScrollContainer className='list-cards-container' horizontal='false'>
         {mode === "characters" &&
         characters.length !== 0 &&
         results.length !== 0
@@ -74,7 +67,7 @@ function CardList(props) {
           : movieList.map(() => (
               <MovieCard key={uuid()} imageUrl={null} title={null} />
             ))}
-      </div>
+      </ScrollContainer>
     </div>
   );
 }
