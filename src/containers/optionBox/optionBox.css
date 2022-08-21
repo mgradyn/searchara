@@ -8,7 +8,7 @@
 .optionBox-change {
   display: flex;
   justify-content: flex-end;
-  order: 2;
+  /* order: 2; */
 }
 
 .optionBox-supported {
@@ -17,7 +17,7 @@
   align-items: flex-end;
   text-align: right;
   margin-bottom: 1rem;
-  order: 1;
+  /* order: 1; */
 }
 
 .optionBox-supported h1 {
@@ -33,15 +33,15 @@
     display: none;
   }
 
-  .optionBox-change {
+  /* .optionBox-change {
     display: block-inline;
     align-items: flex-end;
     vertical-align: bottom;
     order: 1;
-  }
+  } */
 
-  .optionBox-supported {
+  /* .optionBox-supported {
     margin-bottom: 0;
     order: 2;
-  }
+  } */
 }
