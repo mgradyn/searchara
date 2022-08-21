@@ -7,7 +7,7 @@ import { ResultContext } from "./resultContext";
 import { TopLoadingContext } from "./topLoadingContext";
 
 import { ModelContext } from "./modelContext";
-import { DetectionModelContext } from "../utils/detectionModelContext";
+import { DetectionModelContext } from "./detectionModelContext";
 
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -40,10 +40,12 @@ export const ModelHandler = () => {
       tensor = tf.div(tensor, tf.scalar(255.0));
       const predictions = await model.predict(tensor).data();
 
-      const top5 = Array.from(predictions)
+      // console.log(tf.softmax(predictions).dataSync());
+
+      const top5 = Array.from(tf.softmax(predictions).dataSync())
         .map(function (p, i) {
           return {
-            probability: p * 10,
+            probability: p * 100,
             className: TARGET_CLASSES[i].name,
             id: TARGET_CLASSES[i].id,
             index: i,
