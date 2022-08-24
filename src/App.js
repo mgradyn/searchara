@@ -68,14 +68,14 @@ function App() {
   const loadModel = async () => {
     setIsModelLoading(true);
     try {
-      const model = await loadGraphModel(
-        "https://raw.githubusercontent.com/mgradyn/ani_i2/main/model.json"
-      );
+      const model = await loadGraphModel("./model/classifier/model.json");
+      //   "https://raw.githubusercontent.com/mgradyn/ani_i2/main/model.json"
       setModel(model);
 
       const detectionModel = await loadGraphModel(
-        "https://raw.githubusercontent.com/mgradyn/an_i/main/model.json"
+        "./model/detector/model.json"
       );
+      //   "https://raw.githubusercontent.com/mgradyn/an_i/main/model.json"
       setDetectionModel(detectionModel);
 
       setIsModelLoading(false);
