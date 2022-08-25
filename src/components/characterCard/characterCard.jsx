@@ -1,4 +1,4 @@
-import { useContext, memo } from "react";
+import { useContext, memo, useState, useEffect, useRef } from "react";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { ResultContext } from "../../utils/resultContext";
@@ -12,6 +12,8 @@ function CharacterCard(props) {
   const { results, setResults } = useContext(ResultContext);
   const { setMovies } = useContext(MoviesContext);
   const { setIsTopLoading } = useContext(TopLoadingContext);
+  const [imgLoad, setImgLoad] = useState(false);
+  const ref = useRef();
 
   const navigateNewCharacter = () => {
     setIsTopLoading(true);
@@ -22,15 +24,31 @@ function CharacterCard(props) {
       replace: true,
     });
   };
+
+  useEffect(() => {
+    setImgLoad(false);
+    var img = new Image();
+    img.onload = async () => {
+      if (ref.current != null) {
+        setImgLoad(true);
+        ref.current.style.backgroundImage = "url(" + img.src + ")";
+      }
+      // console.log(imgLoad);
+      // console.log(ref.current);
+    };
+    img.src = props.imageUrl;
+  }, [props.imageUrl]);
+
   return (
     <div className='char__card__container'>
       <div className='char__card__container-img'>
-        {props.imageUrl == null ? (
-          <div className='char__img skeleton' />
+        {!imgLoad ? (
+          <div className='char__img skeleton' ref={ref} />
         ) : (
           <div
             className='char__img'
-            style={{ backgroundImage: `url(${props.imageUrl})` }}
+            // style={{ backgroundImage: `url(${props.imageUrl})` }}
+            ref={ref}
           />
         )}
       </div>

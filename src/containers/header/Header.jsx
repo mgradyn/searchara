@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useContext, memo } from "react";
-import character_img from "../../assets/miku.png";
 import { ResultContext } from "../../utils/resultContext";
 import { ImageContext } from "../../utils/imageContext";
 import { CharactersContext } from "../../utils/charactersContext";

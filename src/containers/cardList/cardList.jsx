@@ -35,14 +35,14 @@ function CardList(props) {
         {mode === "characters" &&
         characters.length !== 0 &&
         results.length !== 0
-          ? characters.flatMap((character, i) =>
+          ? characters.flatMap((character, index) =>
               character.id === results[results.selected].id ? null : (
                 <CharacterCard
                   key={uuid()}
-                  idx={i}
+                  idx={index}
                   imageUrl={character.image.large}
                   class={character.name.full}
-                  probability={results[i].probability}
+                  probability={results[index].probability}
                 />
               )
             )
@@ -56,7 +56,7 @@ function CardList(props) {
               />
             ))
           : mode === "movies" && movies.length !== 0 && results.length !== 0
-          ? movies.map((movie) => (
+          ? movies.map((movie, index) => (
               <MovieCard
                 key={uuid()}
                 imageUrl={movie.node.coverImage.extraLarge}

@@ -1,8 +1,25 @@
-import { memo } from "react";
+import { memo, useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./movieCard.css";
 
 function MovieCard(props) {
+  const [imgLoad, setImgLoad] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    setImgLoad(false);
+    var img = new Image();
+    img.onload = async () => {
+      if (ref.current != null) {
+        setImgLoad(true);
+        ref.current.style.backgroundImage = "url(" + img.src + ")";
+      }
+      // console.log(imgLoad);
+      // console.log(ref.current);
+    };
+    img.src = props.imageUrl;
+  }, [props.imageUrl]);
+
   return (
     <a
       className='movieRef'
@@ -12,12 +29,13 @@ function MovieCard(props) {
     >
       <div className='movie__card__container'>
         <div className='movie__card__container-img'>
-          {props.imageUrl == null ? (
-            <div className='movie__img skeleton' />
+          {!imgLoad ? (
+            <div className='movie__img skeleton' ref={ref} />
           ) : (
             <div
               className='movie__img'
-              style={{ backgroundImage: `url(${props.imageUrl})` }}
+              // style={{ backgroundImage: `url(${props.imageUrl})` }}
+              ref={ref}
             />
           )}
         </div>
