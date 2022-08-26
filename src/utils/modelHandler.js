@@ -144,7 +144,7 @@ export const ModelHandler = () => {
 
     img.onload = async () => {
       tf.engine().startScope();
-      model.executeAsync(process_input(img)).then((predictions) => {
+      await model.executeAsync(process_input(img)).then((predictions) => {
         getDetectResult(predictions, img);
         tf.engine().endScope();
       });

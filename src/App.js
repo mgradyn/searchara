@@ -11,6 +11,7 @@ import { DetectionModelContext } from "./utils/detectionModelContext";
 import { CharactersContext } from "./utils/charactersContext";
 import { MoviesContext } from "./utils/moviesContext";
 import { TopLoadingContext } from "./utils/topLoadingContext";
+import { InitInference } from "./utils/iniInference";
 
 import "./global.css";
 
@@ -33,6 +34,9 @@ function App() {
   const [characters, setCharacters] = useState([]);
 
   const [isModelLoading, setIsModelLoading] = useState(false);
+
+  const { initClassificationInference, initDetectionInference } =
+    InitInference();
 
   const providerResults = useMemo(
     () => ({ results, setResults }),
@@ -70,29 +74,21 @@ function App() {
     setIsModelLoading(true);
     try {
       await loadGraphModel("./model/classifier/model.json").then((model) => {
+        initClassificationInference(model);
         setModel(model);
-        tf.engine().startScope();
-        const tensor = tf.zeros([1, 96, 96, 3], "float32");
-        model
-          .predict(tensor)
-          .data()
-          .then(() => {
-            tensor.dispose();
-            tf.engine().endScope();
-          });
       });
       //   "https://raw.githubusercontent.com/mgradyn/ani_i2/main/model.json"
 
-      const detectionModel = await loadGraphModel(
-        "./model/detector/model.json"
-      );
+      await loadGraphModel("./model/detector/model.json").then((model) => {
+        initDetectionInference(model).then(() => {
+          setDetectionModel(model);
+          setIsModelLoading(false);
+        });
+      });
       //   "https://raw.githubusercontent.com/mgradyn/an_i/main/model.json"
-      setDetectionModel(detectionModel);
-
-      setIsModelLoading(false);
     } catch (error) {
       console.log(error);
-      setIsModelLoading(false);
+      // setIsModelLoading(true);
     }
   };
 
