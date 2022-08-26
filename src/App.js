@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { loadGraphModel } from "@tensorflow/tfjs-converter";
 import "@tensorflow/tfjs-backend-webgl";
+import * as tf from "@tensorflow/tfjs-core";
 
 import { ImageContext } from "./utils/imageContext";
 import { ResultContext } from "./utils/resultContext";
@@ -68,9 +69,19 @@ function App() {
   const loadModel = async () => {
     setIsModelLoading(true);
     try {
-      const model = await loadGraphModel("./model/classifier/model.json");
+      await loadGraphModel("./model/classifier/model.json").then((model) => {
+        setModel(model);
+        tf.engine().startScope();
+        const tensor = tf.zeros([1, 96, 96, 3], "float32");
+        model
+          .predict(tensor)
+          .data()
+          .then(() => {
+            tensor.dispose();
+            tf.engine().endScope();
+          });
+      });
       //   "https://raw.githubusercontent.com/mgradyn/ani_i2/main/model.json"
-      setModel(model);
 
       const detectionModel = await loadGraphModel(
         "./model/detector/model.json"

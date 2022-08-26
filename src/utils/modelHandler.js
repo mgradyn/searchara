@@ -32,13 +32,14 @@ export const ModelHandler = () => {
     img.src = newImageURL;
 
     // setImageURL(newImageURL);
-
+    tf.engine().startScope();
     img.onload = async () => {
       let tensor = tf.browser.fromPixels(img, 3);
       tensor = tf.image.resizeNearestNeighbor(tensor, [96, 96]);
       tensor = tf.expandDims(tensor, 0);
       tensor = tf.div(tensor, tf.scalar(255.0));
       const predictions = await model.predict(tensor).data();
+      tf.engine().endScope();
 
       // console.log(tf.softmax(predictions).dataSync());
 
