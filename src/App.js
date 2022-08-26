@@ -73,19 +73,21 @@ function App() {
   const loadModel = async () => {
     setIsModelLoading(true);
     try {
-      await loadGraphModel("./model/classifier/model.json").then((model) => {
-        initClassificationInference(model);
-        setModel(model);
-      });
-      //   "https://raw.githubusercontent.com/mgradyn/ani_i2/main/model.json"
-
-      await loadGraphModel("./model/detector/model.json").then((model) => {
-        initDetectionInference(model).then(() => {
-          setDetectionModel(model);
-          setIsModelLoading(false);
+      await loadGraphModel("./model/classifier/model.json")
+        .then((model) => {
+          //   "https://raw.githubusercontent.com/mgradyn/ani_i2/main/model.json"
+          initClassificationInference(model);
+          setModel(model);
+        })
+        .then(async () => {
+          await loadGraphModel("./model/detector/model.json").then((model) => {
+            //   "https://raw.githubusercontent.com/mgradyn/an_i/main/model.json"
+            initDetectionInference(model).then(() => {
+              setDetectionModel(model);
+              setIsModelLoading(false);
+            });
+          });
         });
-      });
-      //   "https://raw.githubusercontent.com/mgradyn/an_i/main/model.json"
     } catch (error) {
       console.log(error);
       // setIsModelLoading(true);
