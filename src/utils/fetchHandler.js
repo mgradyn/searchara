@@ -129,6 +129,7 @@ query ($id: Int){
   };
 
   const getMovies = (variables) => {
+    setMovies([]);
     fetchRequest(variables, movieQuery, handleMoviesData);
   };
 

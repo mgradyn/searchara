@@ -4,6 +4,8 @@ import { TARGET_CLASSES } from "./constant";
 
 import { ImageContext } from "./imageContext";
 import { ResultContext } from "./resultContext";
+import { MoviesContext } from "./moviesContext";
+import { CharactersContext } from "./charactersContext";
 import { TopLoadingContext } from "./topLoadingContext";
 
 import { ModelContext } from "./modelContext";
@@ -15,6 +17,9 @@ import { FetchHandler } from "./fetchHandler";
 
 export const ModelHandler = () => {
   const { setResults } = useContext(ResultContext);
+  const { setMovies } = useContext(MoviesContext);
+  const { setCharacters } = useContext(CharactersContext);
+
   const { imageURL } = useContext(ImageContext);
   const { setIsTopLoading } = useContext(TopLoadingContext);
 
@@ -155,6 +160,8 @@ export const ModelHandler = () => {
     setIsTopLoading(true);
     if (imageURL != null) {
       if (detectionModel !== null && model !== null) {
+        setResults([]);
+        setCharacters([]);
         Promise.all([detectionModel])
           .then((values) => {
             detectImage(imageURL, values[0]);
