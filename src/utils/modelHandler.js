@@ -8,8 +8,7 @@ import { MoviesContext } from "./moviesContext";
 import { CharactersContext } from "./charactersContext";
 import { TopLoadingContext } from "./topLoadingContext";
 
-import { ModelContext } from "./modelContext";
-import { DetectionModelContext } from "./detectionModelContext";
+import { ModelContext, DetectionModelContext } from "./modelContext";
 
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
