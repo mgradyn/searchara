@@ -72,6 +72,7 @@ li {
   max-width: 120px;
   line-height: 30px;
   border-radius: 40px;
+  min-height: 40px;
   cursor: pointer;
   border: none;
 }
@@ -126,6 +127,10 @@ li {
 .skeleton-text:last-of-type {
   margin-bottom: 0;
   width: 80%;
+}
+
+.hide {
+  display: none !important;
 }
 
 @media screen and (max-width: 860px) {

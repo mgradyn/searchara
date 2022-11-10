@@ -99,23 +99,19 @@ function SearchBar(props) {
         onChange={toggleUrlUpload}
       />
 
-      {navbar ? (
-        <button
-          className='content__button search__button small'
-          onClick={identifyImage}
-        >
+      <button
+        className={"content__button search__button " + (navbar ? "small" : "")}
+        onClick={identifyImage}
+      >
+        <div className='search__button-animation hide'>
+          <span className='loader'></span>
+        </div>
+        <div className='search__button-text'>
           Search
           <Icon className='search__icon__inside' icon='akar-icons:search' />
-        </button>
-      ) : (
-        <button
-          className='content__button search__button'
-          onClick={identifyImage}
-        >
-          Search
-          <Icon className='search__icon__inside' icon='akar-icons:search' />
-        </button>
-      )}
+        </div>
+      </button>
+
       {navbar && isUploadBoxOpen && (
         <div className='uploadBox appear' ref={uploadBoxRef}>
           <div className='uploadBox-header'>
